@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Xml.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class MouseControlClaw : MonoBehaviour
@@ -42,6 +43,8 @@ public class MouseControlClaw : MonoBehaviour
     public float frequency = 5f;        // 弹性系数（越大越硬）
     public float dampingRatio = 0.5f;   // 阻尼（0~1，越大回弹越少）
 
+    public float maxDistance = 10f; // 最大距离限制
+
     public GameObject targetClaw;
     Claw clawScript;
 
@@ -54,6 +57,7 @@ public class MouseControlClaw : MonoBehaviour
 
     public GameObject clawVisual;//爪子的可视化对象
 
+    public LayerMask hitLayers;      // 射线检测层
     void Start()
     {
         rb = targetClaw.GetComponent<Rigidbody2D>();
@@ -65,7 +69,7 @@ public class MouseControlClaw : MonoBehaviour
     void EnableClaw()
     {
         isClawing = true;
-        clawScript.isEnabled = true;
+        clawScript.collider2D.enabled = true;
         
     }
 
@@ -73,18 +77,17 @@ public class MouseControlClaw : MonoBehaviour
     {
         isClawing = false;
         clawScript.DisableClaw();
-        clawScript.isEnabled = false;
+        clawScript.collider2D.enabled = false;
     }
 
     //绘制从当前物体到目标爪子的线段（在游戏界面中可视化）  
     public Material lineMaterial;  // 线材质
     public float lineWidth = 0.1f;
 
-    private LineRenderer lr;
+    public LineRenderer lr;
 
     void ChangeLineData()
-    {
-        lr = GetComponent<LineRenderer>();
+    {       
 
         // 设置材质
         if (lineMaterial != null)
@@ -103,9 +106,49 @@ public class MouseControlClaw : MonoBehaviour
         if ( targetClaw != null)
         {
             lr.SetPosition(0,transform.position);
+            //限制最大的绘制距离
+            /*if(isClawing)
+            {
+                Vector2 direction = targetClaw.transform.position - transform.position;
+                float currentDistance = direction.magnitude;
+                if (currentDistance > maxDistance)
+                {
+                    direction = direction.normalized * maxDistance;
+                }
+                lr.SetPosition(1, (Vector2)transform.position + direction);
+                return;
+            }*/
             lr.SetPosition(1, targetClaw.transform.position);
         }
+       
     }
+
+    void UpdateRay(Vector3 start, Vector3 end)
+    {
+        if (targetClaw == null)
+            return;      
+        Vector2 direction = (end - start).normalized;
+        float distance = Vector2.Distance(start, end);
+
+        // 发射射线检测
+        RaycastHit2D hit = Physics2D.Raycast(start, direction, distance, hitLayers);
+
+        if (hit.collider != null)
+        {
+            // 射线击中了物体
+            Destroy(spring);
+            DisableClaw();
+            Debug.DrawLine(start, hit.point, Color.red); // Debug 可视化
+            Debug.Log($"Ray hit: {hit.collider.name}");
+        }
+        else
+        {         
+            Debug.DrawLine(start, end, Color.green);
+        }
+    }
+
+    
+
     void MouseControl()
     {
 
@@ -138,10 +181,34 @@ public class MouseControlClaw : MonoBehaviour
         {
             Destroy(spring);
             DisableClaw();
-            Debug.Log("释放爪子" + clawScript.isEnabled);
+           
         }
     }
 
+
+    public void LimitClawMaxDistance()
+    {
+        //限制targetClaw与当前物体的最大距离
+        if (targetClaw != null && isClawing)
+        {
+            float currentDistance = Vector2.Distance(transform.position, targetClaw.transform.position);
+            if (currentDistance > maxDistance)
+            {
+              //将鼠标的锚点位置设置为最大距离位置
+              Vector2 direction = targetClaw.transform.position - transform.position;
+                    direction = direction.normalized * maxDistance;
+                    if (spring != null)
+                {
+                        spring.connectedAnchor = (Vector2)transform.position + direction;
+                    }
+               
+            }           
+        }
+
+
+
+
+    }
 
     public void SetAngel()
     {
@@ -156,6 +223,8 @@ public class MouseControlClaw : MonoBehaviour
         UpdateLinePosition();
         MouseControl();
         SetAngel();
+        LimitClawMaxDistance();
+        UpdateRay(transform.position, targetClaw.transform.position);
     }
 
    

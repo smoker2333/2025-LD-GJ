@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Claw : MonoBehaviour
 {
-    public bool isEnabled = true;// 爪子是否可用
+   // public bool isEnabled = true;// 爪子是否可用
 
     bool isClawed = false;// 是否抓取到物品
 
@@ -18,17 +18,22 @@ public class Claw : MonoBehaviour
     public float originalLinearDrag=0.15f;
     public float releaedLinearDrag = 4f;//是否需要靠线性插值来改变线性阻力
 
+    //   public LayerMask targetObjectLayerMask; // 物体的Layer
+
+    public Collider2D collider2D;
+
     void Start()
     {
-        fixedJoint=gameObject.GetComponent<FixedJoint2D>();
+        collider2D = GetComponent<Collider2D>();
+        fixedJoint =gameObject.GetComponent<FixedJoint2D>();
         fixedJoint.enabled = false; // 初始时禁用 FixedJoint2D
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (isEnabled)
+        //if (isEnabled)
         {
-            if (collision.gameObject.CompareTag("Clawable") && !isClawed)
+            if (collision.gameObject.CompareTag("Object") && !isClawed)
             {
                 SetClawedObject(collision.gameObject);
                 // 抓取到物品后的逻辑

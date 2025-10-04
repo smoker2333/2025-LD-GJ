@@ -1,0 +1,61 @@
+using System.Collections;
+using System.Collections.Generic;
+using TMPro;
+using UnityEngine;
+
+public class UIDataDisplay : MonoBehaviour
+{
+    public GameObject scoreTextObject;
+
+    public TextMeshProUGUI currentScoreText;
+
+    public TextMeshProUGUI timeText;
+
+    public GameObject loseUI;
+
+    private void Start()
+    {
+        // 订阅事件，参数是名字 + 位置
+        GameManager.instance.addScoreEvent += ShowObjectInfo;
+        GameManager.instance.OnTimeChanged+= UpdateUITime;
+        GameManager.instance.loseGameEvent += ShowLoseUI;
+    }
+
+    private void OnDisable()
+    {
+        // 取消订阅
+        GameManager.instance.addScoreEvent -= ShowObjectInfo;
+        GameManager.instance.OnTimeChanged -= UpdateUITime;
+        GameManager.instance.loseGameEvent -= ShowLoseUI;
+    }
+
+    private void ShowObjectInfo(float score, Vector3 pos)
+    {
+        GameObject spawnedObj = Instantiate(scoreTextObject, pos, Quaternion.identity);
+        spawnedObj.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = score.ToString("F0");      
+
+        currentScoreText.text = "Score: " + GameManager.instance.currentGameScore.ToString("F0");
+    }
+
+    void UpdateUITime(float timeRemaining)
+    {
+        int minutes = Mathf.FloorToInt(timeRemaining / 60f);
+        int seconds = Mathf.FloorToInt(timeRemaining % 60f);
+        timeText.text = string.Format("Time: {0:00}:{1:00}", minutes, seconds);
+    }
+
+
+    void ShowLoseUI()
+    {
+        loseUI.SetActive(true);
+    }
+
+
+    public void OnRestartButton()
+    {
+  /*      loseUI.SetActive(false);
+        GameManager.instance.StarTheGame();*/
+        EventHub.OnGameRestart?.Invoke();
+    }
+
+}

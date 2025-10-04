@@ -4,7 +4,8 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Clawable
+  - Object
+  - Destroy
   layers:
   - Default
   - TransparentFX
@@ -12,8 +13,8 @@ TagManager:
   - Ground
   - Water
   - UI
-  - 
-  - 
+  - Object
+  - Trap
   - 
   - 
   - 
