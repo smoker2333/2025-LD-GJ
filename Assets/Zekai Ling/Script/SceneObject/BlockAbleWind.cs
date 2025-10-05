@@ -17,10 +17,15 @@ public class BlockAbleWind : MonoBehaviour
     public AreaEffector2D areaEffector2D; // AreaEffector2D组件
 
     public bool blockAble = false; //是否可以阻挡
-    private void Start()
+
+    private void Awake()
     {
         areaEffector2D = GetComponent<AreaEffector2D>();
         particleSystem = GetComponent<ParticleSystem>();
+    }
+    private void Start()
+    {
+       
         //groundLayerMask = LayerMask.GetMask("Player");
         origin = transform.position;
         /*if (up == false)
