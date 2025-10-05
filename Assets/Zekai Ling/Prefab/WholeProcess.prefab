@@ -503,7 +503,7 @@ GameObject:
   - component: {fileID: 1324332841037760978}
   - component: {fileID: 7618229911631347097}
   - component: {fileID: 4697935876884415527}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Ground (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -662,7 +662,7 @@ GameObject:
   - component: {fileID: 1422222875324177350}
   - component: {fileID: 6471868506900896380}
   - component: {fileID: 8040540056166839627}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: BeltPlatform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -776,6 +776,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0
+  forceAmount: 5
 --- !u!61 &8040540056166839627
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -833,7 +834,7 @@ GameObject:
   - component: {fileID: 3580176636227711768}
   - component: {fileID: 63512267736772987}
   - component: {fileID: 7389634411777816354}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Ground (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1240,7 +1241,7 @@ GameObject:
   - component: {fileID: 7076556024952719412}
   - component: {fileID: 2251028939298527633}
   - component: {fileID: 1667436517441368789}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Belt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1422,7 +1423,7 @@ GameObject:
   - component: {fileID: 1435451003933000202}
   - component: {fileID: 5185676125666750802}
   - component: {fileID: 5821525401396844867}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Ground (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4968244972634813925}
   - component: {fileID: 8769142091276193191}
   - component: {fileID: 3878267936310513889}
+  - component: {fileID: 2605412551650117745}
   m_Layer: 6
   m_Name: BombSprite
   m_TagString: Object
@@ -120,6 +121,20 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.65
+--- !u!114 &2605412551650117745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1902081088078170059}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f7279c5b600b6b4ebff553777e87d39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  count: 0
+  maxCount: 10
 --- !u!1 &7683257157973837495
 GameObject:
   m_ObjectHideFlags: 0
@@ -132,7 +147,6 @@ GameObject:
   - component: {fileID: 111202215395301611}
   - component: {fileID: 3122097235946571262}
   - component: {fileID: 6098593507620493457}
-  - component: {fileID: -3245732420338290142}
   m_Layer: 6
   m_Name: Bomb
   m_TagString: Object
@@ -214,17 +228,3 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &-3245732420338290142
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7683257157973837495}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f7279c5b600b6b4ebff553777e87d39, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  count: 0
-  maxCount: 10

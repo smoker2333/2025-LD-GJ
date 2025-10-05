@@ -207,7 +207,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 322ce4de5b59fde499b7d1ceeabd8957, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distance: 0
   frequency: 1
   dampingRatio: 0.5
   maxDistance: 3
@@ -388,7 +387,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4993924327591057256}
   - component: {fileID: 237500466939898524}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: ClawAnimation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -471,7 +470,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1695538913386348046}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TargetPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -539,7 +538,7 @@ GameObject:
   - component: {fileID: 4895003817405715092}
   - component: {fileID: 3427495216637985316}
   - component: {fileID: 6789042059745107496}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Claw
   m_TagString: Untagged
   m_Icon: {fileID: 0}
