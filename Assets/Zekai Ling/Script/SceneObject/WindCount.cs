@@ -43,7 +43,7 @@ public class WindCount : MonoBehaviour
         //当windCount大于0时，不断减一
         if (count > 0)
         {
-            count--;
+            count-=3;
         }
     }
 }
