@@ -8,4 +8,10 @@ public static class EventHub
 {
     public static Action OnGameRestart;
 
+    public static Action OnGamePause;
+
+    public static Action OnGameResume;
+
+    public static Action NextLevelEvent;
+
 }

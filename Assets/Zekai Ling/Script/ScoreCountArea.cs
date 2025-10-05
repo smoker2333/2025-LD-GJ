@@ -7,6 +7,7 @@ public class ScoreCountArea : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (GameManager.instance.isPaused) return;
         //如果碰撞到的物体的标签是"Object"
         if (collision.CompareTag("Object"))
         {

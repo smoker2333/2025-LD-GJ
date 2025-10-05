@@ -29,7 +29,9 @@ public class GameManager : MonoBehaviour
     void Awake()
     {
         EventHub.OnGameRestart += RestartTheGame;
-
+        EventHub.OnGamePause += PauseTheGame;
+        EventHub.OnGameResume += ResumeTheGame;
+        EventHub.NextLevelEvent += LoadNextLevel;
 
         if (instance == null)
         {
@@ -50,6 +52,10 @@ public class GameManager : MonoBehaviour
     private void OnDisable()
     {
         EventHub.OnGameRestart -= RestartTheGame;
+        EventHub.OnGamePause -= PauseTheGame;
+        EventHub.OnGameResume -= ResumeTheGame;
+        EventHub.NextLevelEvent -= LoadNextLevel;
+
     }
 
     IEnumerator CountdownRoutine()
@@ -146,7 +152,26 @@ public class GameManager : MonoBehaviour
        winGameEvent?.Invoke();
     }
 
+    public void QuitTheGame()
+    {
+        Application.Quit();
+    }
 
+    public void LoadNextLevel()
+    {
+        //加载下一个场景
+        int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
+        if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
+        {
+            SceneManager.LoadScene(nextSceneIndex);
+            StarTheGame();
+        }
+        else
+        {
+            Debug.Log("已经是最后一个场景，无法加载下一个场景。");
+        }
+
+    }
 
     public void RestartTheGame()
     {

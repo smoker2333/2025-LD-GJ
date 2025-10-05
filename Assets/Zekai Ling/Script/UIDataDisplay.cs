@@ -12,6 +12,7 @@ public class UIDataDisplay : MonoBehaviour
     public TextMeshProUGUI timeText;
 
     public GameObject loseUI;
+    public GameObject winUI;
 
     private void Start()
     {
@@ -19,6 +20,7 @@ public class UIDataDisplay : MonoBehaviour
         GameManager.instance.addScoreEvent += ShowObjectInfo;
         GameManager.instance.OnTimeChanged+= UpdateUITime;
         GameManager.instance.loseGameEvent += ShowLoseUI;
+        GameManager.instance.winGameEvent += ShowWinUI;
     }
 
     private void OnDisable()
@@ -27,6 +29,7 @@ public class UIDataDisplay : MonoBehaviour
         GameManager.instance.addScoreEvent -= ShowObjectInfo;
         GameManager.instance.OnTimeChanged -= UpdateUITime;
         GameManager.instance.loseGameEvent -= ShowLoseUI;
+        GameManager.instance.winGameEvent -= ShowWinUI;
     }
 
     private void ShowObjectInfo(float score, Vector3 pos)
@@ -56,12 +59,22 @@ public class UIDataDisplay : MonoBehaviour
         loseUI.SetActive(true);
     }
 
+    void ShowWinUI()
+    {
+        winUI.SetActive(true);
+        
+    }
 
     public void OnRestartButton()
     {
   /*      loseUI.SetActive(false);
         GameManager.instance.StarTheGame();*/
         EventHub.OnGameRestart?.Invoke();
+    }
+
+    public void LoadNextLevelButton()
+    {
+        EventHub.NextLevelEvent?.Invoke();
     }
 
 }
