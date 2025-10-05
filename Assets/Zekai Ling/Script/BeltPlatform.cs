@@ -25,7 +25,7 @@ public class BeltPlatform : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //如果碰到标签为Destroy的物体，销毁传送带
-        if (collision.gameObject.CompareTag("Destroy")|| collision.gameObject.CompareTag("Hide"))
+        if ( collision.gameObject.CompareTag("Hide"))
         {
             //因为是用对象池生成的传送带，所以不是销毁而是隐藏
             gameObject.SetActive(false);            
