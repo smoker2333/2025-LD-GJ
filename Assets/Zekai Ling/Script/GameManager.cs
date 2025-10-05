@@ -22,6 +22,8 @@ public class GameManager : MonoBehaviour
 
     public bool isPaused = false;
 
+    public bool IsGameOver { get; private set; } = false;
+
     private Coroutine countTimeCoroutine;
 
     void Awake()
@@ -32,7 +34,7 @@ public class GameManager : MonoBehaviour
         if (instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(gameObject);
+          //  DontDestroyOnLoad(gameObject);
             Debug.Log("GameManager initialized.");
         }
         else
@@ -133,14 +135,15 @@ public class GameManager : MonoBehaviour
 
     public void GameLose()
     {
+        PauseTheGame();
         loseGameEvent?.Invoke();
 
     }
 
     public void GameWin()
     {
+        PauseTheGame();
        winGameEvent?.Invoke();
-
     }
 
 

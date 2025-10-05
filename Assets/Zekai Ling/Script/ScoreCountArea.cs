@@ -24,6 +24,9 @@ public class ScoreCountArea : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
+        if (GameManager.instance.isPaused) return;
+        Debug.Log("物体离开计分区");
+       
         //如果碰撞到的物体的标签是"Object"
         if (collision.CompareTag("Object"))
         {
