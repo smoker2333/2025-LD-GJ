@@ -4950,6 +4950,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 72
   windControl: {fileID: 467431793843424262}
+  areaEffector2D: {fileID: 0}
   blockAble: 1
 --- !u!249 &5045813945769210031
 AreaEffector2D:
@@ -9921,6 +9922,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 72
   windControl: {fileID: 467431793843424262}
+  areaEffector2D: {fileID: 0}
   blockAble: 1
 --- !u!249 &3533791204251562042
 AreaEffector2D:
@@ -9954,7 +9956,7 @@ GameObject:
   - component: {fileID: 8230447925657451397}
   - component: {fileID: 467431793843424262}
   m_Layer: 0
-  m_Name: Fan
+  m_Name: Fan_Horizontal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10051,6 +10053,7 @@ MonoBehaviour:
   - {fileID: 4496228957124692066}
   - {fileID: 5890054560843510239}
   - {fileID: 8279587022597992010}
+  fanData: {fileID: 11400000, guid: eaff08254a5f9964e80085474454fe44, type: 2}
 --- !u!1 &5991600314817404392
 GameObject:
   m_ObjectHideFlags: 0
@@ -15001,6 +15004,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 72
   windControl: {fileID: 467431793843424262}
+  areaEffector2D: {fileID: 0}
   blockAble: 1
 --- !u!249 &8736257661471285071
 AreaEffector2D:
@@ -19972,6 +19976,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 72
   windControl: {fileID: 467431793843424262}
+  areaEffector2D: {fileID: 0}
   blockAble: 1
 --- !u!249 &2244026774809199130
 AreaEffector2D:
@@ -24963,6 +24968,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 72
   windControl: {fileID: 467431793843424262}
+  areaEffector2D: {fileID: 0}
   blockAble: 1
 --- !u!1 &8944996794067448995
 GameObject:
@@ -29914,6 +29920,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 72
   windControl: {fileID: 467431793843424262}
+  areaEffector2D: {fileID: 0}
   blockAble: 1
 --- !u!249 &6012494926609092064
 AreaEffector2D:
