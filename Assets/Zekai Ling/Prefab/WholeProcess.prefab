@@ -1488,7 +1488,7 @@ GameObject:
   m_Layer: 3
   m_Name: Belt
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -1575,7 +1575,7 @@ MonoBehaviour:
   beltPlatformPrefab: {fileID: 6471868506900896380}
   spawnInterval: 0.2
   speed: 1
-  poolSize: 15
+  poolSize: 10
 --- !u!61 &1667436517441368789
 BoxCollider2D:
   m_ObjectHideFlags: 0

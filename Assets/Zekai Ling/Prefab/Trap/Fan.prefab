@@ -10045,6 +10045,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1f9b11c2fabd2643b5b00c846b56470, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blockAbleWinds:
+  - {fileID: 3230384509321063804}
+  - {fileID: 5734178996869170336}
+  - {fileID: 4496228957124692066}
+  - {fileID: 5890054560843510239}
+  - {fileID: 8279587022597992010}
 --- !u!1 &5991600314817404392
 GameObject:
   m_ObjectHideFlags: 0

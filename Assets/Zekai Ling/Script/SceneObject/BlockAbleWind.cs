@@ -14,7 +14,7 @@ public class BlockAbleWind : MonoBehaviour
     private bool isPlaying = false;
     private ParticleSystem particleSystem;
 
-    AreaEffector2D areaEffector2D; // AreaEffector2D组件
+    public AreaEffector2D areaEffector2D; // AreaEffector2D组件
 
     public bool blockAble = false; //是否可以阻挡
     private void Start()

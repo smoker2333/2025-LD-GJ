@@ -5,7 +5,9 @@ using UnityEngine;
 public class BeltPlatform : MonoBehaviour
 {
     GameObject carryingObject; // 传送带上承载的物体
-     
+    
+    public ScriptableObject beltData;
+
     public float speed = 2f;          // 传送带移动速度
     //当检测到物体进入传送带时，将该物体作为传送带平台的子物体
 
@@ -15,6 +17,12 @@ public class BeltPlatform : MonoBehaviour
 
     void Start()
     {
+        if (beltData != null)
+        {
+            // 从ScriptableObject中获取速度值
+            speed = ((BeltData)beltData).MovingSpeed;
+        }
+
         rb = GetComponent<Rigidbody2D>();
         rb.velocity = new Vector2(speed, 0); // 设置传送带的初始速度
     }

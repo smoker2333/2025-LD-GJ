@@ -119,6 +119,7 @@ public class GameManager : MonoBehaviour
         ResetScore();
         currentTime = timeLimitInSeconds;
         isPaused = false;
+        Time.timeScale = 1f;
 
     }
 
