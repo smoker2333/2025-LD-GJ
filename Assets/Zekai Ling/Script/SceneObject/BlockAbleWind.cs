@@ -76,7 +76,7 @@ public class BlockAbleWind : MonoBehaviour
                  }
 
                  //如果目标物体的tag为Player或者Enemy，或者SceneObject，才能继续执行，用comparetag方法
-                 else if (hit.collider.CompareTag("Player") || hit.collider.CompareTag("SceneObject"))
+                 else if (hit.collider.CompareTag("Object"))
                  {
                      if(myObject==null)
                      {

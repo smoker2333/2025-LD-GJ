@@ -39,7 +39,7 @@ public class MouseControlClaw : MonoBehaviour
          }
 
      }*/
-    public float distance = 0f;         // 弹簧初始长度
+   float distance = 0f;         // 弹簧初始长度
     public float frequency = 5f;        // 弹性系数（越大越硬）
     public float dampingRatio = 0.5f;   // 阻尼（0~1，越大回弹越少）
 
