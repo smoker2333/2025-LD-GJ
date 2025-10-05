@@ -4,9 +4,16 @@ using UnityEngine;
 
 public class TextShow : MonoBehaviour
 {
-  //该物体展示3秒后销毁
-    private void Start()
+    public float showDuration = 3f; //展示时间
+
+    //该物体展示3秒后销毁
+    private void Update()
     {
-        Destroy(gameObject, 3f);
+        showDuration -= Time.deltaTime;
+        if (showDuration <= 0f)
+        {
+            Destroy(gameObject);
+        }
     }
+    
 }

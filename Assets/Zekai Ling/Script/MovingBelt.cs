@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class MovingBelt : MonoBehaviour
 {
+    public GameObject beltPlatform; // 新传送带平台预制件
+
     public float speed = 2f;          // 传送带移动速度
 
 
@@ -18,11 +20,17 @@ public class MovingBelt : MonoBehaviour
             // 沿着传送带方向施加速度
             rb.velocity = new Vector2(direction.x * speed, rb.velocity.y);
         }
-        /*  Rigidbody2D rb = collision.rigidbody;
-          if (rb != null)
-          {
-              // 持续施加一个向右的推力，而不是修改速度
-              rb.AddForce(Vector2.right * forceAmount, ForceMode2D.Force);
-          }*/
+       /* Rigidbody2D rb = collision.rigidbody;
+        if (rb != null)
+        {
+            // 持续施加一个向右的推力，而不是修改速度
+            rb.AddForce(Vector2.right * forceAmount, ForceMode2D.Force);
+        }*/
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        // 当物体进入传送带时，在对应位置生成一个新的传送带平台
+    }
+
 }

@@ -5,6 +5,9 @@ using UnityEngine;
 public class SpawnObject : MonoBehaviour
 {
     public ObjectDataCount[] objectPrefabs; //要生成的物体预制件
+     
+    public MovingBelt movingBelt; //传送带脚本引用
+
     int index;
 
 

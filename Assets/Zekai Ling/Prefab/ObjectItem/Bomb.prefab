@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3878267936310513889}
   m_Layer: 6
   m_Name: BombSprite
-  m_TagString: Untagged
+  m_TagString: Object
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -132,6 +132,7 @@ GameObject:
   - component: {fileID: 111202215395301611}
   - component: {fileID: 3122097235946571262}
   - component: {fileID: 6098593507620493457}
+  - component: {fileID: -3245732420338290142}
   m_Layer: 6
   m_Name: Bomb
   m_TagString: Object
@@ -167,7 +168,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b558b1dfadc28e34896317df106f934f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionDelay: 2
+  explosionDelay: 10
   explosionMaxRadius: 3
   explosionMinRadius: 1
   force: 15
@@ -213,3 +214,17 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &-3245732420338290142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7683257157973837495}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f7279c5b600b6b4ebff553777e87d39, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  count: 0
+  maxCount: 10
