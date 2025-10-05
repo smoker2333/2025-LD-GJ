@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 5640784228446050498}
   - component: {fileID: 4951910550138177228}
   - component: {fileID: 4216149879204100960}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Start
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -123,7 +123,7 @@ GameObject:
   - component: {fileID: 8229736284857749393}
   - component: {fileID: 2854114346507088600}
   - component: {fileID: 441957140520769727}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: End
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -237,7 +237,7 @@ GameObject:
   - component: {fileID: 4063940781425912043}
   - component: {fileID: 1298147002213410168}
   - component: {fileID: 2117177371440828653}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Trap_Laser
   m_TagString: Untagged
   m_Icon: {fileID: 0}

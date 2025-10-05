@@ -990,7 +990,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7465582913137291254, guid: 84aa1f86230071e4784c33cb46755dd8, type: 3}
       propertyPath: scoreToWinGame
-      value: 1000
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 7465582913137291254, guid: 84aa1f86230071e4784c33cb46755dd8, type: 3}
       propertyPath: currentGameScore
