@@ -168,7 +168,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b558b1dfadc28e34896317df106f934f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionDelay: 10
+  explosionDelay: 2
   explosionMaxRadius: 3
   explosionMinRadius: 1
   force: 15
@@ -221,7 +221,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7683257157973837495}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6f7279c5b600b6b4ebff553777e87d39, type: 3}
   m_Name: 
