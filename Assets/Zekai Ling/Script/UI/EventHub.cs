@@ -14,4 +14,6 @@ public static class EventHub
 
     public static Action NextLevelEvent;
 
+    public static Action OnGameQuit;
+
 }

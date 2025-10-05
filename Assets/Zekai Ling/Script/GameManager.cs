@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
 
     public float scoreToWinGame;
 
+  //  public Action resumeGame;
+    public Action pauseGame;
     public Action loseGameEvent;
     public Action winGameEvent;
     public Action<float, Vector3> addScoreEvent;
@@ -22,7 +24,7 @@ public class GameManager : MonoBehaviour
 
     public bool isPaused = false;
 
-    public bool IsGameOver { get; private set; } = false;
+    public bool IsGameWined { get; private set; } = false;
 
     private Coroutine countTimeCoroutine;
 
@@ -98,6 +100,12 @@ public class GameManager : MonoBehaviour
         currentGameScore = 0; 
     }
 
+
+    public void ResumeGame()
+    {
+        pauseGame?.Invoke();
+    }
+
     public void StarTheGame()
     {
         ResetData();
@@ -134,7 +142,7 @@ public class GameManager : MonoBehaviour
     }
 
     public void ResumeTheGame()
-    {
+    {     
         if (countTimeCoroutine != null)
         {
           isPaused=false;
@@ -144,14 +152,18 @@ public class GameManager : MonoBehaviour
 
     public void GameLose()
     {
-        PauseTheGame();
-        loseGameEvent?.Invoke();
+        if (!IsGameWined)
+        {
+            PauseTheGame();           
+            loseGameEvent?.Invoke();
+        }       
     }
 
     public void GameWin()
     {
        // PauseTheGame();
        winGameEvent?.Invoke();
+        IsGameWined = true;
     }
 
     public void QuitTheGame()

@@ -11,8 +11,10 @@ public class UIDataDisplay : MonoBehaviour
 
     public TextMeshProUGUI timeText;
 
+    public GameObject inGameUI;
     public GameObject loseUI;
     public GameObject winUI;
+    public GameObject pauseUI;
 
     private void Start()
     {
@@ -21,6 +23,10 @@ public class UIDataDisplay : MonoBehaviour
         GameManager.instance.OnTimeChanged+= UpdateUITime;
         GameManager.instance.loseGameEvent += ShowLoseUI;
         GameManager.instance.winGameEvent += ShowWinUI;
+        GameManager.instance.pauseGame += ShowPauseUI;
+
+        EventHub.OnGamePause+= ShowPauseUI;
+        EventHub.OnGameResume += ShowPauseUI;
     }
 
     private void OnDisable()
@@ -30,6 +36,10 @@ public class UIDataDisplay : MonoBehaviour
         GameManager.instance.OnTimeChanged -= UpdateUITime;
         GameManager.instance.loseGameEvent -= ShowLoseUI;
         GameManager.instance.winGameEvent -= ShowWinUI;
+        GameManager.instance.pauseGame -= ShowPauseUI;
+
+        EventHub.OnGamePause -= ShowPauseUI;
+        EventHub.OnGameResume -= ShowPauseUI;
     }
 
     private void ShowObjectInfo(float score, Vector3 pos)
@@ -53,10 +63,10 @@ public class UIDataDisplay : MonoBehaviour
 
     }
 
-
     void ShowLoseUI()
     {
         loseUI.SetActive(true);
+        inGameUI.gameObject.SetActive(false);
     }
 
     void ShowWinUI()
@@ -64,12 +74,29 @@ public class UIDataDisplay : MonoBehaviour
         winUI.SetActive(true);
         
     }
+    void ShowPauseUI()
+    {
+       //ÒÀ¾Ýµ±Ç°×´Ì¬ÇÐ»»UI
+        pauseUI.SetActive(!pauseUI.activeSelf);
+        inGameUI.SetActive(!inGameUI.activeSelf);
+    }
 
     public void OnRestartButton()
     {
   /*      loseUI.SetActive(false);
         GameManager.instance.StarTheGame();*/
         EventHub.OnGameRestart?.Invoke();
+    }
+
+    public void OnPauseButton()
+    {
+        EventHub.OnGamePause?.Invoke();
+
+    }
+
+    public void OnResumeButton()
+    {
+        EventHub.OnGameResume?.Invoke();
     }
 
     public void LoadNextLevelButton()
