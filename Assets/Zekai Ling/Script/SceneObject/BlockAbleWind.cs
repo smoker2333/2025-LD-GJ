@@ -86,12 +86,18 @@ public class BlockAbleWind : MonoBehaviour
                      if(myObject==null)
                      {
                          myObject = hit.collider.gameObject.GetComponent<WindCount>();
-                     }                  
-                     if (myObject.count < myObject.maxCount)
-                     {
-                         myObject.count += 2;
-                     }
-                 }
+                     }      
+                     else if(myObject!=hit.collider.gameObject.GetComponent<WindCount>())
+                    {
+                        myObject = hit.collider.gameObject.GetComponent<WindCount>();
+                    }
+                     
+                    if (myObject.count < myObject.maxCount)
+                    {
+                        myObject.count += 2;
+                    }
+
+                }
 
              }
              else
