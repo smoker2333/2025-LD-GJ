@@ -16,8 +16,8 @@ public class MusicManager : MonoBehaviour
     public AudioSource musicSource;
     
     [Header("背景音乐")]
-    public AudioClip mainMenuMusic;
-    public AudioClip gameMusic;
+    public AudioClip mainGameSceneMusic; // 游戏主场景背景音乐
+    public AudioClip conveyorBeltAmbientSound; // 传送带环境音
 
     
     private AudioClip currentMusic;

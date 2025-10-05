@@ -13,29 +13,25 @@ public class SoundManager : MonoBehaviour
     private Dictionary<AudioSource, float> originalVolumes;
     private int currentAudioSourceIndex = 0;
 
-    [Header("音效")] public AudioClip buttonClickSound;
-    public AudioClip buttonHoverSound;
-    public AudioClip skillUseSound;
-    public AudioClip enemyDeathSound;
-    public AudioClip playerDamageSound;
-    public AudioClip bossDamageSound;
-    public AudioClip explosionSound;
-    public AudioClip levelCompleteSound;
-    public AudioClip victorySound;
-    public AudioClip defeatSound;
-    public AudioClip gameOverSound;
-    public AudioClip countdownSound;
-    public AudioClip bossLandSound;
-    
-    public AudioClip playerAttack1Sound; // Attack1音效
-    public AudioClip playerAttack3Sound; // Attack3音效
+    [Header("玩家基础动作音效")]
+    public AudioClip playerPullsRopeSound; // 玩家拉扯绳子音效
+    public AudioClip playerReleasesRopeSound; // 玩家释放绳子音效
+    public AudioClip grapplingHookHooksPackageSound; // 钩爪勾上包裹音效
+    public AudioClip packagePlacedInBasketSound; // 包裹放入篮筐音效
 
-    [Header("Bonus界面音效")] public AudioClip bonusMusic;
-    public AudioClip rollButtonClickSound;
-    public AudioClip rollCompleteSound;
-    public AudioClip skillSelectSound;
-    public AudioClip confirmButtonSound;
-    public AudioClip slotMachineRollingSound;
+    [Header("关卡机关音效")]
+    public AudioClip trapRopeRetrievalSound; // 陷阱绳子回收音效
+    public AudioClip baffleItemTouchingPlateSound; // 挡板物品触碰板块音效
+    public AudioClip laserTriggerSound; // 激光触发音效
+    public AudioClip windFieldAmbientSound; // 风场环境音效
+    public AudioClip timedGateOpeningSound; // 定时闸门开启音效
+    public AudioClip timedGateClosingSound; // 定时闸门关闭音效
+    public AudioClip timedBombExplosionSound; // 定时炸弹爆炸音效
+
+    [Header("UI音效")]
+    public AudioClip successSound; // 成功音效
+    public AudioClip failSound; // 失败音效
+    public AudioClip menuButtonSound; // 菜单按键音效
 
     void Awake()
     {
