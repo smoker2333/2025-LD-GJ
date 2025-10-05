@@ -129,6 +129,7 @@ public class GameManager : MonoBehaviour
         {
            isPaused=true;
         }
+        Time.timeScale=0f;//‘›Õ£”Œœ∑
     }
 
     public void ResumeTheGame()
@@ -137,18 +138,18 @@ public class GameManager : MonoBehaviour
         {
           isPaused=false;
         }
+        Time.timeScale=1f;//ª÷∏¥”Œœ∑
     }
 
     public void GameLose()
     {
         PauseTheGame();
         loseGameEvent?.Invoke();
-
     }
 
     public void GameWin()
     {
-        PauseTheGame();
+       // PauseTheGame();
        winGameEvent?.Invoke();
     }
 

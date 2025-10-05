@@ -5,6 +5,20 @@ using UnityEngine;
 public class TrapLaser : MonoBehaviour
 {
     public float reflectMultiplier = 1.2f; // 反弹速度倍率（>1 表示更强）
+    public ScriptableObject reflectLaserData;
+
+    private void Start()
+    {
+        if (reflectLaserData != null)
+        {
+            ReflectLaserData data = reflectLaserData as ReflectLaserData;
+            if (data != null)
+            {
+                reflectMultiplier = data.multiplier;
+            }
+        }
+    }
+
 
     private void OnCollisionEnter2D(Collision2D collision)
     {

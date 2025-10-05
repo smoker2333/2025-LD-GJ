@@ -7,6 +7,9 @@ using UnityEngine;
 
 public class MouseControlClaw : MonoBehaviour
 {
+    public ScriptableObject clawData;
+
+
     /* public float forceStrength = 10f;  // 吸引力强度
      public float maxDistance = 5f;     // 影响范围
 
@@ -60,9 +63,35 @@ public class MouseControlClaw : MonoBehaviour
     public LayerMask hitLayers;      // 射线检测层
     void Start()
     {
+
         rb = targetClaw.GetComponent<Rigidbody2D>();
         clawScript = targetClaw.GetComponent<Claw>();
+        LoadClawData();
         ChangeLineData();
+    }
+
+    void LoadClawData()
+    {
+
+        if (clawData != null)
+        {
+            ClawData data = clawData as ClawData;
+            if (data != null)
+            {
+                frequency = data.frequency;
+                dampingRatio = data.dampingRatio;
+                maxDistance = data.maxDistance;
+
+                //绘制从当前物体到目标爪子的线段（在游戏界面中可视化）  
+                if (data.lineMaterial != null)
+                    lineMaterial = data.lineMaterial;
+                lineWidth = data.lineWidth;
+
+                clawScript.originalLinearDrag = data.originalLinearDrag;
+                clawScript.releaedLinearDrag = data.releaedLinearDrag;
+            }
+        }
+
     }
 
 

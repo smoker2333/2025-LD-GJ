@@ -174,6 +174,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectValue: 10
   objectWeight: 2
+  objectData: {fileID: 0}
 --- !u!114 &-1531768923025546483
 MonoBehaviour:
   m_ObjectHideFlags: 0
