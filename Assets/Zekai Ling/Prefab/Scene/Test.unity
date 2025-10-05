@@ -302,6 +302,10 @@ PrefabInstance:
       propertyPath: m_Offset.y
       value: 0.00033146515
       objectReference: {fileID: 0}
+    - target: {fileID: 3791907911253012238, guid: 3adf7c4f45e435b458e249cb47c2d23f, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 6200000, guid: 8ee53e23b4489104f8349302d0fd400b, type: 2}
     - target: {fileID: 5821525401396844867, guid: 3adf7c4f45e435b458e249cb47c2d23f, type: 3}
       propertyPath: m_CollisionDetection
       value: 1
@@ -616,6 +620,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0
+  forceAmount: 5
 --- !u!1 &1196075437
 GameObject:
   m_ObjectHideFlags: 0
@@ -855,7 +860,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 7
 --- !u!61 &1685477385
 BoxCollider2D:

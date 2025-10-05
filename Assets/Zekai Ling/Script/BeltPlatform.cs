@@ -11,6 +11,8 @@ public class BeltPlatform : MonoBehaviour
 
     Rigidbody2D rb;
 
+    public float forceAmount = 5f;    // 施加的力的大小
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -44,7 +46,8 @@ public class BeltPlatform : MonoBehaviour
         {
             //还原物体的父物体为空
           //  carryingObject.transform.SetParent(null);
-            Destroy(gameObject);
+           carryingObject = null;
+                        
         }
     }
 
@@ -52,6 +55,13 @@ public class BeltPlatform : MonoBehaviour
     {
         if (carryingObject != null)
         {
+            //对目标物体施加一个向右的推力
+            Rigidbody2D objRb = carryingObject.GetComponent<Rigidbody2D>();
+            if (objRb != null)
+            {
+                objRb.AddForce(Vector2.right * forceAmount, ForceMode2D.Impulse);
+            }
+
            // carryingObject.transform.SetParent(null);
         }
     }

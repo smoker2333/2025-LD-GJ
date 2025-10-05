@@ -47,7 +47,7 @@ public class GameManager : MonoBehaviour
     {
         StarTheGame();
     }
-    private void OnDestroy()
+    private void OnDisable()
     {
         EventHub.OnGameRestart -= RestartTheGame;
     }

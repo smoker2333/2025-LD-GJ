@@ -31,6 +31,8 @@ public class UIDataDisplay : MonoBehaviour
 
     private void ShowObjectInfo(float score, Vector3 pos)
     {
+        // 如果游戏正在退出或场景卸载，不执行
+        if (!this || !gameObject.scene.isLoaded) return;
         GameObject spawnedObj = Instantiate(scoreTextObject, pos, Quaternion.identity);
         spawnedObj.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = score.ToString("F0");      
 
@@ -39,9 +41,13 @@ public class UIDataDisplay : MonoBehaviour
 
     void UpdateUITime(float timeRemaining)
     {
-        int minutes = Mathf.FloorToInt(timeRemaining / 60f);
-        int seconds = Mathf.FloorToInt(timeRemaining % 60f);
-        timeText.text = string.Format("Time: {0:00}:{1:00}", minutes, seconds);
+        if(timeRemaining>0)
+        {
+            int minutes = Mathf.FloorToInt(timeRemaining / 60f);
+            int seconds = Mathf.FloorToInt(timeRemaining % 60f);
+            timeText.text = string.Format("Time: {0:00}:{1:00}", minutes, seconds);
+        }
+
     }
 
 
