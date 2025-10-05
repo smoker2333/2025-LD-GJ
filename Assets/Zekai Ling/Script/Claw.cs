@@ -18,12 +18,20 @@ public class Claw : MonoBehaviour
     public float originalLinearDrag=0.15f;
     public float releaedLinearDrag = 4f;//是否需要靠线性插值来改变线性阻力
 
+  //  public ScriptableObject clawData;
+
     //   public LayerMask targetObjectLayerMask; // 物体的Layer
 
     public Collider2D collider2D;
 
     void Start()
     {
+      /*  if (clawData is ClawData data)
+        {
+            originalLinearDrag = data.originalLinearDrag;
+            releaedLinearDrag = data.releaedLinearDrag;
+        }*/
+
         collider2D = GetComponent<Collider2D>();
         fixedJoint =gameObject.GetComponent<FixedJoint2D>();
         fixedJoint.enabled = false; // 初始时禁用 FixedJoint2D

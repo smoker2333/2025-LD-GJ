@@ -6,6 +6,15 @@ public class Fan :MonoBehaviour
 {
     //如果_isStart变为true时，播放一次AnitGravity音效
     private bool isPlayed = false; // 是否已经播放过音效
+
+    public BlockAbleWind[] blockAbleWinds; // 存储所有 BlockAbleWind 组件的数组
+
+
+    void LoadWindData()
+    {
+
+    }
+
     public void SwitchTheFan()
     {
         //   if (isStart)

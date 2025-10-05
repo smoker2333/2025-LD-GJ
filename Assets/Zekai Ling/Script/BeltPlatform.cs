@@ -22,12 +22,13 @@ public class BeltPlatform : MonoBehaviour
     {
         rb.velocity = new Vector2(speed, 0); // 持续设置传送带的速度，确保其移动
            }
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         //如果碰到标签为Destroy的物体，销毁传送带
-        if (collision.gameObject.CompareTag("Destroy"))
+        if (collision.gameObject.CompareTag("Destroy")|| collision.gameObject.CompareTag("Hide"))
         {
-            Destroy(gameObject);
+            //因为是用对象池生成的传送带，所以不是销毁而是隐藏
+            gameObject.SetActive(false);            
             return;
         }
 
@@ -51,7 +52,7 @@ public class BeltPlatform : MonoBehaviour
         }
     }
 
-    private void OnDestroy()
+    private void OnDisable()
     {
         if (carryingObject != null)
         {
@@ -61,6 +62,7 @@ public class BeltPlatform : MonoBehaviour
             {
                 objRb.AddForce(Vector2.right * forceAmount, ForceMode2D.Impulse);
             }
+            carryingObject = null;
 
            // carryingObject.transform.SetParent(null);
         }
