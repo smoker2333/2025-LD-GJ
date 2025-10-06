@@ -675,6 +675,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: -13.18
       objectReference: {fileID: 0}
+    - target: {fileID: 8115345619080630180, guid: 24e420e8f81d23c40bf71b147d34f5a4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8914505899148387111, guid: 24e420e8f81d23c40bf71b147d34f5a4, type: 3}
       propertyPath: m_Name
       value: WholeProcess
