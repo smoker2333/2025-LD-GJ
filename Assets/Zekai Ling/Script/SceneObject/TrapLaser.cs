@@ -7,6 +7,7 @@ public class TrapLaser : MonoBehaviour
     public float reflectMultiplier = 1.2f; // �����ٶȱ��ʣ�>1 ��ʾ��ǿ��
     public ScriptableObject reflectLaserData;
 
+    public float soundLimitation = 5f;//如果弹射速度小于这个值就不播放音效
     private void Start()
     {
         if (reflectLaserData != null)
@@ -22,9 +23,7 @@ public class TrapLaser : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        // 播放激光触发音效和陷阱绳子回收音效
-        SoundManager.Instance.PlaySound(SoundManager.Instance.laserTriggerSound);
-        SoundManager.Instance.PlaySound(SoundManager.Instance.trapRopeRetrievalSound);
+       
         
         if(collision.collider.CompareTag("Object") == false)
             return;
@@ -42,6 +41,12 @@ public class TrapLaser : MonoBehaviour
 
             // �����µ��ٶȣ��ɼӱ���
             rb.velocity = reflect * reflectMultiplier;
+            if(rb.velocity.magnitude < soundLimitation)
+                return;
+
+            // 播放激光触发音效和陷阱绳子回收音效
+            SoundManager.Instance.PlaySound(SoundManager.Instance.laserTriggerSound);
+           // SoundManager.Instance.PlaySound(SoundManager.Instance.trapRopeRetrievalSound);
         }
     }
 

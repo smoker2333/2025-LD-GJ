@@ -273,8 +273,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9e79b68f3a7390488f7694a3c8a93b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  force: 1000
+  reflectMultiplier: 1.2
   reflectLaserData: {fileID: 0}
+  soundLimitation: 2
 --- !u!50 &4063940781425912043
 Rigidbody2D:
   serializedVersion: 4
