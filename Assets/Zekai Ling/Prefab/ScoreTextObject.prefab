@@ -203,7 +203,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94c5fb00042a0a5489a884ab9e5c9ad5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  showDuration: 2
-  targetScale: 1.6
+  showDuration: 1.2
+  targetScale: 1.3
   scaleSpeed: 4
   targetRisingDistance: 1
