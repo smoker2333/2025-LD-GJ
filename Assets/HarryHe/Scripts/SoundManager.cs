@@ -49,13 +49,14 @@ public class SoundManager : MonoBehaviour
 
     void Start()
     {
-        SetupAudioSourcePool();
+        // 音频池已在InitializeSoundManager中设置
     }
 
     private void InitializeSoundManager()
     {
         audioSourcePool = new List<AudioSource>();
         originalVolumes = new Dictionary<AudioSource, float>();
+        SetupAudioSourcePool(); // 在初始化时立即设置音频池
     }
 
     private void SetupAudioSourcePool()
@@ -74,6 +75,13 @@ public class SoundManager : MonoBehaviour
     // 获取下一个可用的AudioSource
     private AudioSource GetNextAvailableAudioSource()
     {
+        // 检查音频池是否为空
+        if (audioSourcePool == null || audioSourcePool.Count == 0)
+        {
+            Debug.LogError("AudioSource pool is empty! Make sure audioSourcePoolSize > 0");
+            return null;
+        }
+        
         // 查找当前可用的AudioSource
         for (int i = 0; i < audioSourcePool.Count; i++)
         {
@@ -95,7 +103,12 @@ public class SoundManager : MonoBehaviour
         if (isMuted || clip == null) return;
 
         AudioSource audioSource = GetNextAvailableAudioSource();
-        if (audioSource != null)
+        if (audioSource == null)
+        {
+            Debug.LogWarning("No available AudioSource to play sound: " + clip.name);
+            return;
+        }
+        else
         {
             // 存储原始音量
             originalVolumes[audioSource] = volume;

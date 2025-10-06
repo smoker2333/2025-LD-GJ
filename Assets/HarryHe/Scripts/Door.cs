@@ -6,7 +6,14 @@ public class Door : MonoBehaviour
 {
     public GameObject leftDoor;
     public GameObject rightDoor;
-
+    
+    [Header("边界设置")]
+    public Transform leftBoundary; // 左边界
+    public Transform rightBoundary; // 右边界
+    
+    [Header("动画控制")]
+    public Animator doorAnimator; // 门的Animator组件
+    
     public float openDuration;//开门动作所需的时间
     public float closeDuration;//关门动作所需的时间
     public float openInterval;//开门后到关门的间隔时间
@@ -33,6 +40,7 @@ public class Door : MonoBehaviour
     {
         return StartCoroutine(DoorAnimation());
     }
+    
 
     private IEnumerator DoorAnimation()
     {
@@ -57,6 +65,12 @@ public class Door : MonoBehaviour
         // 播放定时闸门开启音效
         SoundManager.Instance.PlaySound(SoundManager.Instance.timedGateOpeningSound);
         
+        // 播放开门动画（正向）
+        if (doorAnimator != null)
+        {
+            doorAnimator.Play("DoorOpen");
+        }
+        
         Vector3 leftTarget = leftDoorStartPos - transform.right * doorOpenDistance;
         Vector3 rightTarget = rightDoorStartPos + transform.right * doorOpenDistance;
         
@@ -77,6 +91,12 @@ public class Door : MonoBehaviour
     {
         // 播放定时闸门关闭音效
         SoundManager.Instance.PlaySound(SoundManager.Instance.timedGateClosingSound);
+        
+        // 播放关门动画（反向）
+        if (doorAnimator != null)
+        {
+            doorAnimator.Play("DoorClose");
+        }
         
         Vector3 leftCurrent = leftDoor.transform.position;
         Vector3 rightCurrent = rightDoor.transform.position;
