@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5951458992690521742
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3220283062669310512}
+  - component: {fileID: 6216310560160899796}
+  m_Layer: 0
+  m_Name: SoundManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3220283062669310512
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5951458992690521742}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.635403, y: 1.0442921, z: 0.0282868}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6216310560160899796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5951458992690521742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d91071336b399df4bb2f4c373190f0ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  volume: 1
+  isMuted: 0
+  audioSourcePoolSize: 10
+  playerPullsRopeSound: {fileID: 8300000, guid: 7f2ef849c259ff343840bb84f0ebf986, type: 3}
+  playerReleasesRopeSound: {fileID: 8300000, guid: 8d15dc2da021e1746abf61f7d6589608, type: 3}
+  grapplingHookHooksPackageSound: {fileID: 8300000, guid: a617ca845eca80a4dbedf67fabb64155, type: 3}
+  packagePlacedInBasketSound: {fileID: 8300000, guid: 9d97798895687c2409eeaac43aa0ee9b, type: 3}
+  trapRopeRetrievalSound: {fileID: 0}
+  baffleItemTouchingPlateSound: {fileID: 8300000, guid: 67e98118e54ac7144a15d949c1433895, type: 3}
+  laserTriggerSound: {fileID: 8300000, guid: d69aaa9febf8c5741a61fed4137feb00, type: 3}
+  windFieldAmbientSound: {fileID: 0}
+  timedGateOpeningSound: {fileID: 8300000, guid: ff504cdf53f39fb4181a6e3dfafc3cc4, type: 3}
+  timedGateClosingSound: {fileID: 8300000, guid: 6757ade3756757d44bc665321362e8b8, type: 3}
+  timedBombExplosionSound: {fileID: 8300000, guid: 36d8eab1ab90a49498fabb9a59bb8771, type: 3}
+  successSound: {fileID: 8300000, guid: 97b071b5e5f638042b6654c97bf4bce3, type: 3}
+  failSound: {fileID: 8300000, guid: ba8b23e63884df64c8f2a402730ea2b8, type: 3}
+  menuButtonSound: {fileID: 8300000, guid: 75cfecd5972a6c349bd415072826a59a, type: 3}

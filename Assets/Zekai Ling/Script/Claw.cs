@@ -4,23 +4,23 @@ using UnityEngine;
 
 public class Claw : MonoBehaviour
 {
-   // public bool isEnabled = true;// ×¦×ÓÊÇ·ñ¿ÉÓÃ
+   // public bool isEnabled = true;// ×¦ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½
 
-    bool isClawed = false;// ÊÇ·ñ×¥È¡µ½ÎïÆ·
+    bool isClawed = false;// ï¿½Ç·ï¿½×¥È¡ï¿½ï¿½ï¿½ï¿½Æ·
 
-    public GameObject clawedObject;// ×¥È¡µ½µÄÎïÆ·
+    public GameObject clawedObject;// ×¥È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ·
 
     private FixedJoint2D fixedJoint;
 
-    public Transform clawedTransform;//¹´µ½ÎïÌåºóÎïÌå»áËø¶¨µÄÎ»ÖÃ
+    public Transform clawedTransform;//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½
 
 
     public float originalLinearDrag=0.15f;
-    public float releaedLinearDrag = 4f;//ÊÇ·ñÐèÒª¿¿ÏßÐÔ²åÖµÀ´¸Ä±äÏßÐÔ×èÁ¦
+    public float releaedLinearDrag = 4f;//ï¿½Ç·ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½Ô²ï¿½Öµï¿½ï¿½ï¿½Ä±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
   //  public ScriptableObject clawData;
 
-    //   public LayerMask targetObjectLayerMask; // ÎïÌåµÄLayer
+    //   public LayerMask targetObjectLayerMask; // ï¿½ï¿½ï¿½ï¿½ï¿½Layer
 
     public Collider2D collider2D;
 
@@ -34,7 +34,7 @@ public class Claw : MonoBehaviour
 
         collider2D = GetComponent<Collider2D>();
         fixedJoint =gameObject.GetComponent<FixedJoint2D>();
-        fixedJoint.enabled = false; // ³õÊ¼Ê±½ûÓÃ FixedJoint2D
+        fixedJoint.enabled = false; // ï¿½ï¿½Ê¼Ê±ï¿½ï¿½ï¿½ï¿½ FixedJoint2D
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -43,9 +43,11 @@ public class Claw : MonoBehaviour
         {
             if (collision.gameObject.CompareTag("Object") && !isClawed)
             {
+                SoundManager.Instance.PlaySound(SoundManager.Instance.grapplingHookHooksPackageSound);
+                
                 SetClawedObject(collision.gameObject);
-                // ×¥È¡µ½ÎïÆ·ºóµÄÂß¼­
-                Debug.Log("×¥È¡µ½ÎïÆ·: " + collision.gameObject.name);
+                // ×¥È¡ï¿½ï¿½ï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ß¼ï¿½
+                Debug.Log("×¥È¡ï¿½ï¿½ï¿½ï¿½Æ·: " + collision.gameObject.name);
             }
         }
       
@@ -59,7 +61,7 @@ public class Claw : MonoBehaviour
 
         clawedObject.transform.rotation = clawedTransform.rotation;
 
-        fixedJoint.enabled = true; // ÆôÓÃ FixedJoint2D
+        fixedJoint.enabled = true; // ï¿½ï¿½ï¿½ï¿½ FixedJoint2D
         fixedJoint.connectedBody = clawedObject.GetComponent<Rigidbody2D>();
 
         gameObject.GetComponent<Rigidbody2D>().drag = originalLinearDrag;
@@ -74,7 +76,7 @@ public class Claw : MonoBehaviour
 
         if (isClawed)
         {
-            fixedJoint.enabled = false; // ½ûÓÃ FixedJoint2D
+            fixedJoint.enabled = false; // ï¿½ï¿½ï¿½ï¿½ FixedJoint2D
             clawedObject.transform.SetParent(null);
             clawedObject = null;         
 

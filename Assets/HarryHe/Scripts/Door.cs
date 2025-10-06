@@ -54,6 +54,9 @@ public class Door : MonoBehaviour
 
     private IEnumerator OpenDoor()
     {
+        // 播放定时闸门开启音效
+        SoundManager.Instance.PlaySound(SoundManager.Instance.timedGateOpeningSound);
+        
         Vector3 leftTarget = leftDoorStartPos - transform.right * doorOpenDistance;
         Vector3 rightTarget = rightDoorStartPos + transform.right * doorOpenDistance;
         
@@ -72,6 +75,9 @@ public class Door : MonoBehaviour
 
     private IEnumerator CloseDoor()
     {
+        // 播放定时闸门关闭音效
+        SoundManager.Instance.PlaySound(SoundManager.Instance.timedGateClosingSound);
+        
         Vector3 leftCurrent = leftDoor.transform.position;
         Vector3 rightCurrent = rightDoor.transform.position;
         

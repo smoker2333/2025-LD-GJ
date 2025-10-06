@@ -8,16 +8,18 @@ public class ScoreCountArea : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (GameManager.instance.isPaused) return;
-        //Èç¹ûÅö×²µ½µÄÎïÌåµÄ±êÇ©ÊÇ"Object"
+        //ï¿½ï¿½ï¿½ï¿½ï¿½×²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä±ï¿½Ç©ï¿½ï¿½"Object"
         if (collision.CompareTag("Object"))
         {
-            //»ñÈ¡Åö×²ÎïÌåÉÏµÄObjectDataCount×é¼ş
+            //ï¿½ï¿½È¡ï¿½ï¿½×²ï¿½ï¿½ï¿½ï¿½ï¿½Ïµï¿½ObjectDataCountï¿½ï¿½ï¿½
             ObjectDataCount objectData = collision.GetComponent<ObjectDataCount>();
             if (objectData != null)
             {
-                //½«ÎïÌåµÄ·ÖÊı¼Óµ½ÓÎÏ·¹ÜÀíÆ÷µÄµ±Ç°·ÖÊıÖĞ
-                GameManager.instance.AddScore(objectData.objectValue, collision.transform.position);
-                Debug.Log("µ±Ç°·ÖÊı: " + GameManager.instance.currentGameScore);
+                //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä·ï¿½ï¿½ï¿½ï¿½Óµï¿½ï¿½ï¿½Ï·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Äµï¿½Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+                SoundManager.Instance.PlaySound(SoundManager.Instance.packagePlacedInBasketSound);
+            
+            GameManager.instance.AddScore(objectData.objectValue, collision.transform.position);
+                Debug.Log("ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½: " + GameManager.instance.currentGameScore);
                
             }
         }
@@ -26,18 +28,18 @@ public class ScoreCountArea : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (GameManager.instance.isPaused) return;
-        Debug.Log("ÎïÌåÀë¿ª¼Æ·ÖÇø");
+        Debug.Log("ï¿½ï¿½ï¿½ï¿½ï¿½ë¿ªï¿½Æ·ï¿½ï¿½ï¿½");
        
-        //Èç¹ûÅö×²µ½µÄÎïÌåµÄ±êÇ©ÊÇ"Object"
+        //ï¿½ï¿½ï¿½ï¿½ï¿½×²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä±ï¿½Ç©ï¿½ï¿½"Object"
         if (collision.CompareTag("Object"))
         {
-            //»ñÈ¡Åö×²ÎïÌåÉÏµÄObjectDataCount×é¼ş
+            //ï¿½ï¿½È¡ï¿½ï¿½×²ï¿½ï¿½ï¿½ï¿½ï¿½Ïµï¿½ObjectDataCountï¿½ï¿½ï¿½
             ObjectDataCount objectData = collision.GetComponent<ObjectDataCount>();
             if (objectData != null)
             {
-                //½«ÎïÌåµÄ·ÖÊı¼Óµ½ÓÎÏ·¹ÜÀíÆ÷µÄµ±Ç°·ÖÊıÖĞ
+                //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä·ï¿½ï¿½ï¿½ï¿½Óµï¿½ï¿½ï¿½Ï·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Äµï¿½Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
                 GameManager.instance.AddScore(-objectData.objectValue, collision.transform.position);
-                Debug.Log("µ±Ç°·ÖÊı: " + GameManager.instance.currentGameScore);
+                Debug.Log("ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½: " + GameManager.instance.currentGameScore);
 
             }
         }

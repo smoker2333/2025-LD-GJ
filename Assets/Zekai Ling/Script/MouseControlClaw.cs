@@ -10,8 +10,8 @@ public class MouseControlClaw : MonoBehaviour
     public ScriptableObject clawData;
 
 
-    /* public float forceStrength = 10f;  // ÎüÒýÁ¦Ç¿¶È
-     public float maxDistance = 5f;     // Ó°Ïì·¶Î§
+    /* public float forceStrength = 10f;  // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç¿ï¿½ï¿½
+     public float maxDistance = 5f;     // Ó°ï¿½ì·¶Î§
 
      public Rigidbody2D targetObject;
 
@@ -22,31 +22,31 @@ public class MouseControlClaw : MonoBehaviour
 
      void Update()
      {
-         if (Input.GetMouseButton(0)) // Êó±ê×ó¼ü°´×¡
+         if (Input.GetMouseButton(0)) // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×¡
          {
-             // ½«Êó±êÆÁÄ»×ø±ê×ªÎªÊÀ½ç×ø±ê
+             // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä»ï¿½ï¿½ï¿½ï¿½×ªÎªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
              Vector2 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 
-             // ¼ÆËã·½Ïò
+             // ï¿½ï¿½ï¿½ã·½ï¿½ï¿½
              Vector2 dir = mouseWorldPos - targetObject.position;
              float distance = dir.magnitude;
 
-             // ÏÞÖÆ·¶Î§
+             // ï¿½ï¿½ï¿½Æ·ï¿½Î§
              if (distance < maxDistance)
              {
                  dir.Normalize();
-                 // ÎüÒýÁ¦´óÐ¡Ëæ¾àÀë±ä»¯
+                 // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¡ï¿½ï¿½ï¿½ï¿½ï¿½ä»¯
                  Vector2 force = dir * forceStrength * distance;
                  targetObject.AddForce(force);
              }
          }
 
      }*/
-   float distance = 0f;         // µ¯»É³õÊ¼³¤¶È
-    public float frequency = 5f;        // µ¯ÐÔÏµÊý£¨Ô½´óÔ½Ó²£©
-    public float dampingRatio = 0.5f;   // ×èÄá£¨0~1£¬Ô½´ó»Øµ¯Ô½ÉÙ£©
+   float distance = 0f;         // ï¿½ï¿½ï¿½É³ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½
+    public float frequency = 5f;        // ï¿½ï¿½ï¿½ï¿½Ïµï¿½ï¿½ï¿½ï¿½Ô½ï¿½ï¿½Ô½Ó²ï¿½ï¿½
+    public float dampingRatio = 0.5f;   // ï¿½ï¿½ï¿½á£¨0~1ï¿½ï¿½Ô½ï¿½ï¿½Øµï¿½Ô½ï¿½Ù£ï¿½
 
-    public float maxDistance = 10f; // ×î´ó¾àÀëÏÞÖÆ
+    public float maxDistance = 10f; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
     public GameObject targetClaw;
     Claw clawScript;
@@ -58,9 +58,9 @@ public class MouseControlClaw : MonoBehaviour
     public bool isClawing = false;
 
 
-    public GameObject clawVisual;//×¦×ÓµÄ¿ÉÊÓ»¯¶ÔÏó
+    public GameObject clawVisual;//×¦ï¿½ÓµÄ¿ï¿½ï¿½Ó»ï¿½ï¿½ï¿½ï¿½ï¿½
 
-    public LayerMask hitLayers;      // ÉäÏß¼ì²â²ã
+    public LayerMask hitLayers;      // ï¿½ï¿½ï¿½ß¼ï¿½ï¿½ï¿½
     void Start()
     {
 
@@ -82,7 +82,7 @@ public class MouseControlClaw : MonoBehaviour
                 dampingRatio = data.dampingRatio;
                 maxDistance = data.maxDistance;
 
-                //»æÖÆ´Óµ±Ç°ÎïÌåµ½Ä¿±ê×¦×ÓµÄÏß¶Î£¨ÔÚÓÎÏ·½çÃæÖÐ¿ÉÊÓ»¯£©  
+                //ï¿½ï¿½ï¿½Æ´Óµï¿½Ç°ï¿½ï¿½ï¿½åµ½Ä¿ï¿½ï¿½×¦ï¿½Óµï¿½ï¿½ß¶Î£ï¿½ï¿½ï¿½ï¿½ï¿½Ï·ï¿½ï¿½ï¿½ï¿½ï¿½Ð¿ï¿½ï¿½Ó»ï¿½ï¿½ï¿½  
                 if (data.lineMaterial != null)
                     lineMaterial = data.lineMaterial;
                 lineWidth = data.lineWidth;
@@ -109,8 +109,8 @@ public class MouseControlClaw : MonoBehaviour
         clawScript.collider2D.enabled = false;
     }
 
-    //»æÖÆ´Óµ±Ç°ÎïÌåµ½Ä¿±ê×¦×ÓµÄÏß¶Î£¨ÔÚÓÎÏ·½çÃæÖÐ¿ÉÊÓ»¯£©  
-    public Material lineMaterial;  // Ïß²ÄÖÊ
+    //ï¿½ï¿½ï¿½Æ´Óµï¿½Ç°ï¿½ï¿½ï¿½åµ½Ä¿ï¿½ï¿½×¦ï¿½Óµï¿½ï¿½ß¶Î£ï¿½ï¿½ï¿½ï¿½ï¿½Ï·ï¿½ï¿½ï¿½ï¿½ï¿½Ð¿ï¿½ï¿½Ó»ï¿½ï¿½ï¿½  
+    public Material lineMaterial;  // ï¿½ß²ï¿½ï¿½ï¿½
     public float lineWidth = 0.1f;
 
     public LineRenderer lr;
@@ -118,15 +118,15 @@ public class MouseControlClaw : MonoBehaviour
     void ChangeLineData()
     {       
 
-        // ÉèÖÃ²ÄÖÊ
+        // ï¿½ï¿½ï¿½Ã²ï¿½ï¿½ï¿½
         if (lineMaterial != null)
             lr.material = lineMaterial;
 
-        // ÉèÖÃÏß¿í
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ß¿ï¿½
         lr.startWidth = lineWidth;
         lr.endWidth = lineWidth;
 
-        // Ïß¶ÎÓÐÁ½¸öµã
+        // ï¿½ß¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         lr.positionCount = 2;
     }
 
@@ -135,7 +135,7 @@ public class MouseControlClaw : MonoBehaviour
         if ( targetClaw != null)
         {
             lr.SetPosition(0,transform.position);
-            //ÏÞÖÆ×î´óµÄ»æÖÆ¾àÀë
+            //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä»ï¿½ï¿½Æ¾ï¿½ï¿½ï¿½
             /*if(isClawing)
             {
                 Vector2 direction = targetClaw.transform.position - transform.position;
@@ -159,15 +159,15 @@ public class MouseControlClaw : MonoBehaviour
         Vector2 direction = (end - start).normalized;
         float distance = Vector2.Distance(start, end);
 
-        // ·¢ÉäÉäÏß¼ì²â
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß¼ï¿½ï¿½
         RaycastHit2D hit = Physics2D.Raycast(start, direction, distance, hitLayers);
 
         if (hit.collider != null)
         {
-            // ÉäÏß»÷ÖÐÁËÎïÌå
+            // ï¿½ï¿½ï¿½ß»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
             Destroy(spring);
             DisableClaw();
-            Debug.DrawLine(start, hit.point, Color.red); // Debug ¿ÉÊÓ»¯
+            Debug.DrawLine(start, hit.point, Color.red); // Debug ï¿½ï¿½ï¿½Ó»ï¿½
             Debug.Log($"Ray hit: {hit.collider.name}");
         }
         else
@@ -181,33 +181,39 @@ public class MouseControlClaw : MonoBehaviour
     void MouseControl()
     {
 
-        // °´ÏÂÊó±ê×ó¼ü
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         if (Input.GetMouseButtonDown(0))
         {
-            // Ìí¼Ó SpringJoint2D
+            // ï¿½ï¿½ï¿½ï¿½ SpringJoint2D
+            // æ’­æ”¾çŽ©å®¶æ‹‰æ‰¯ç»³å­éŸ³æ•ˆ
+            SoundManager.Instance.PlaySound(SoundManager.Instance.playerPullsRopeSound);
+            
             spring = targetClaw.AddComponent<SpringJoint2D>();
             spring.autoConfigureDistance = false;
             spring.distance = distance;
             spring.frequency = frequency;
             spring.dampingRatio = dampingRatio;
 
-            // Á¬½Óµ½Êó±êÎ»ÖÃ
+            // ï¿½ï¿½ï¿½Óµï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½
             Vector2 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             spring.connectedAnchor = mouseWorldPos;
 
             EnableClaw();
         }
 
-        // ÍÏ¶¯Ê±¸üÐÂÃªµãÎ»ÖÃ
+        // ï¿½Ï¶ï¿½Ê±ï¿½ï¿½ï¿½ï¿½Ãªï¿½ï¿½Î»ï¿½ï¿½
         if (Input.GetMouseButton(0) && spring != null)
         {
             Vector2 mouseWorldPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             spring.connectedAnchor = mouseWorldPos;
         }
 
-        // ËÉ¿ªÊó±ê£¬Ïú»Ù SpringJoint
+        // ï¿½É¿ï¿½ï¿½ï¿½ê£¬ï¿½ï¿½ï¿½ï¿½ SpringJoint
         if (Input.GetMouseButtonUp(0) && spring != null)
         {
+            // æ’­æ”¾çŽ©å®¶é‡Šæ”¾ç»³å­éŸ³æ•ˆ
+            SoundManager.Instance.PlaySound(SoundManager.Instance.playerReleasesRopeSound);
+            
             Destroy(spring);
             DisableClaw();
            
@@ -217,13 +223,13 @@ public class MouseControlClaw : MonoBehaviour
 
     public void LimitClawMaxDistance()
     {
-        //ÏÞÖÆtargetClawÓëµ±Ç°ÎïÌåµÄ×î´ó¾àÀë
+        //ï¿½ï¿½ï¿½ï¿½targetClawï¿½ëµ±Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         if (targetClaw != null && isClawing)
         {
             float currentDistance = Vector2.Distance(transform.position, targetClaw.transform.position);
             if (currentDistance > maxDistance)
             {
-              //½«Êó±êµÄÃªµãÎ»ÖÃÉèÖÃÎª×î´ó¾àÀëÎ»ÖÃ
+              //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ãªï¿½ï¿½Î»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½
               Vector2 direction = targetClaw.transform.position - transform.position;
                     direction = direction.normalized * maxDistance;
                     if (spring != null)
@@ -241,7 +247,7 @@ public class MouseControlClaw : MonoBehaviour
 
     public void SetAngel()
     {
-        //ÉèÖÃ×¦×ÓµÄ½Ç¶È,targetClaw½Ç¶ÈÏà¶ÔÓÚ¸ÃÎïÌåÎ»ÖÃ
+        //ï¿½ï¿½ï¿½ï¿½×¦ï¿½ÓµÄ½Ç¶ï¿½,targetClawï¿½Ç¶ï¿½ï¿½ï¿½ï¿½ï¿½Ú¸ï¿½ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½
         Vector2 direction = targetClaw.transform.position - transform.position;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         clawVisual.transform.rotation = Quaternion.AngleAxis(angle+90, Vector3.forward);

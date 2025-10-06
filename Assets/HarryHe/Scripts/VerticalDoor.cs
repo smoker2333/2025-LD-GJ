@@ -54,6 +54,9 @@ public class VerticalDoor : MonoBehaviour
 
     private IEnumerator OpenDoor()
     {
+        // 播放定时闸门开启音效
+        SoundManager.Instance.PlaySound(SoundManager.Instance.timedGateOpeningSound);
+        
         Vector3 topTarget = topDoorStartPos + transform.up * doorOpenDistance;
         Vector3 bottomTarget = bottomDoorStartPos - transform.up * doorOpenDistance;
         
@@ -72,6 +75,9 @@ public class VerticalDoor : MonoBehaviour
 
     private IEnumerator CloseDoor()
     {
+        // 播放定时闸门关闭音效
+        SoundManager.Instance.PlaySound(SoundManager.Instance.timedGateClosingSound);
+        
         Vector3 topCurrent = topDoor.transform.position;
         Vector3 bottomCurrent = bottomDoor.transform.position;
         

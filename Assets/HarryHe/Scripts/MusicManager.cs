@@ -14,6 +14,7 @@ public class MusicManager : MonoBehaviour
     public float fadeOutTime = 1f;
     
     public AudioSource musicSource;
+    public AudioSource ambientSource; // 环境音专用的AudioSource
     
     [Header("背景音乐")]
     public AudioClip mainGameSceneMusic; // 游戏主场景背景音乐
@@ -48,6 +49,11 @@ public class MusicManager : MonoBehaviour
         {
             CreateMusicSource();
         }
+        
+        if (ambientSource == null)
+        {
+            CreateAmbientSource();
+        }
     }
     
     private void CreateMusicSource()
@@ -61,6 +67,17 @@ public class MusicManager : MonoBehaviour
         musicSource.loop = loopMusic;
     }
     
+    private void CreateAmbientSource()
+    {
+        GameObject ambientObj = new GameObject("AmbientSource");
+        ambientObj.transform.SetParent(transform);
+        
+        ambientSource = ambientObj.AddComponent<AudioSource>();
+        ambientSource.playOnAwake = false;
+        
+        ambientSource.loop = loopMusic;
+    }
+    
     private void SetupMusicSource()
     {
         if (musicSource != null)
@@ -69,9 +86,16 @@ public class MusicManager : MonoBehaviour
             musicSource.mute = isMuted;
             musicSource.loop = loopMusic;
         }
+        
+        if (ambientSource != null)
+        {
+            ambientSource.volume = volume * maxVolume;
+            ambientSource.mute = isMuted;
+            ambientSource.loop = loopMusic;
+        }
     }
     
-    // 播放音乐
+    // 播放背景音乐
     public void PlayMusic(AudioClip music, bool fadeIn = true)
     {
         if (music == null) return;
@@ -88,6 +112,25 @@ public class MusicManager : MonoBehaviour
         else
         {
             StartMusic(music);
+        }
+    }
+    
+    // 播放环境音（可以同时播放）
+    public void PlayAmbientSound(AudioClip ambientClip)
+    {
+        if (ambientClip == null || ambientSource == null) return;
+        
+        ambientSource.clip = ambientClip;
+        ambientSource.volume = volume * maxVolume;
+        ambientSource.Play();
+    }
+    
+    // 停止环境音
+    public void StopAmbientSound()
+    {
+        if (ambientSource != null && ambientSource.isPlaying)
+        {
+            ambientSource.Stop();
         }
     }
     

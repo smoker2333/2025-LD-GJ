@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TrapLaser : MonoBehaviour
 {
-    public float reflectMultiplier = 1.2f; // ·´µ¯ËÙ¶È±¶ÂÊ£¨>1 ±íÊ¾¸üÇ¿£©
+    public float reflectMultiplier = 1.2f; // ï¿½ï¿½ï¿½ï¿½ï¿½Ù¶È±ï¿½ï¿½Ê£ï¿½>1 ï¿½ï¿½Ê¾ï¿½ï¿½Ç¿ï¿½ï¿½
     public ScriptableObject reflectLaserData;
 
     private void Start()
@@ -22,27 +22,31 @@ public class TrapLaser : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        // æ’­æ”¾æ¿€å…‰è§¦å‘éŸ³æ•ˆå’Œé™·é˜±ç»³å­å›žæ”¶éŸ³æ•ˆ
+        SoundManager.Instance.PlaySound(SoundManager.Instance.laserTriggerSound);
+        SoundManager.Instance.PlaySound(SoundManager.Instance.trapRopeRetrievalSound);
+        
         if(collision.collider.CompareTag("Object") == false)
             return;
         Rigidbody2D rb = collision.rigidbody;
         if (rb != null && collision.contacts.Length > 0)
         {
-            // »ñÈ¡Åö×²µãµÄ·¨Ïß·½Ïò
+            // ï¿½ï¿½È¡ï¿½ï¿½×²ï¿½ï¿½Ä·ï¿½ï¿½ß·ï¿½ï¿½ï¿½
             Vector2 normal = collision.contacts[0].normal;
 
-            // µ±Ç°ËÙ¶È·½Ïò
+            // ï¿½ï¿½Ç°ï¿½Ù¶È·ï¿½ï¿½ï¿½
             Vector2 incoming = rb.velocity;
 
-            // ·´ÉäÏòÁ¿ = ÈëÉäÏòÁ¿¸ù¾Ý·¨Ïß·´Éä
+            // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ = ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý·ï¿½ï¿½ß·ï¿½ï¿½ï¿½
             Vector2 reflect = Vector2.Reflect(incoming, normal);
 
-            // ÉèÖÃÐÂµÄËÙ¶È£¨¿É¼Ó±¶£©
+            // ï¿½ï¿½ï¿½ï¿½ï¿½Âµï¿½ï¿½Ù¶È£ï¿½ï¿½É¼Ó±ï¿½ï¿½ï¿½
             rb.velocity = reflect * reflectMultiplier;
         }
     }
 
 
-   /* public float force = 50f; // »÷·ÉµÄÁ¦¶È
+   /* public float force = 50f; // ï¿½ï¿½ï¿½Éµï¿½ï¿½ï¿½ï¿½ï¿½
     public ScriptableObject reflectLaserData;
 
     private void Start()
@@ -57,10 +61,10 @@ public class TrapLaser : MonoBehaviour
         }
     }
 
-    //µ±Åöµ½¸ÃÎïÌåÊ±£¬ÒÀ¾ÝÈëÉäºÍ·¨Ïß·½Ïò¼ÆËã·´ÉäÏòÁ¿£¬²¢ÒÀ¾Ý·´ÉäµÄ½Ç¶È¸øÓëÎïÌåÒ»¸ö¹Ì¶¨µÄÁ¦force
+    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í·ï¿½ï¿½ß·ï¿½ï¿½ï¿½ï¿½ï¿½ã·´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý·ï¿½ï¿½ï¿½Ä½Ç¶È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Ì¶ï¿½ï¿½ï¿½ï¿½ï¿½force
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        //µ±Åöµ½¸ÃÎïÌåÊ±£¬ÒÀ¾ÝÈëÉäºÍ·¨Ïß·½Ïò¼ÆËã·´ÉäÏòÁ¿£¬²¢ÒÀ¾Ý·´ÉäµÄ½Ç¶È¸øÓëÎïÌåÒ»¸ö¹Ì¶¨µÄÁ¦force
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í·ï¿½ï¿½ß·ï¿½ï¿½ï¿½ï¿½ï¿½ã·´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý·ï¿½ï¿½ï¿½Ä½Ç¶È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Ì¶ï¿½ï¿½ï¿½ï¿½ï¿½force
         Debug.Log("Laser collided with: " + collision.gameObject.name);
         if (collision.gameObject.CompareTag("Object"))
         {
@@ -68,13 +72,13 @@ public class TrapLaser : MonoBehaviour
             Rigidbody2D rb = collision.rigidbody;
             if (rb != null && collision.contacts.Length > 0)
             {
-                // »ñÈ¡Åö×²µãµÄ·¨Ïß·½Ïò
+                // ï¿½ï¿½È¡ï¿½ï¿½×²ï¿½ï¿½Ä·ï¿½ï¿½ß·ï¿½ï¿½ï¿½
                 Vector2 normal = collision.contacts[0].normal;
 
-                // µ±Ç°ËÙ¶È·½Ïò
+                // ï¿½ï¿½Ç°ï¿½Ù¶È·ï¿½ï¿½ï¿½
                 Vector2 incoming = rb.velocity;
 
-                // ·´ÉäÏòÁ¿ = ÈëÉäÏòÁ¿¸ù¾Ý·¨Ïß·´Éä
+                // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ = ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý·ï¿½ï¿½ß·ï¿½ï¿½ï¿½
                 Vector2 reflect = Vector2.Reflect(incoming, normal);
 
                 rb.AddForce(reflect.normalized * force, ForceMode2D.Impulse);

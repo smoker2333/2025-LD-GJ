@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class TrapBlock : MonoBehaviour
 {
-    //µ±ObjectÎïÌåÅö×²µ½Õâ¸öTrapBlockÊ±£¬ObjectÎïÌåµÄËÙ¶È»á±äÎª0
+    //ï¿½ï¿½Objectï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×²ï¿½ï¿½ï¿½ï¿½ï¿½TrapBlockÊ±ï¿½ï¿½Objectï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ù¶È»ï¿½ï¿½Îª0
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Object"))
         {
+            SoundManager.Instance.PlaySound(SoundManager.Instance.baffleItemTouchingPlateSound);
+            
             Rigidbody2D rb = collision.gameObject.GetComponent<Rigidbody2D>();
             if (rb != null)
             {
-                rb.velocity = Vector2.zero; // ½«ÎïÌåµÄËÙ¶ÈÉèÎª0
+                rb.velocity = Vector2.zero; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ù¶ï¿½ï¿½ï¿½Îª0
             }
         }
     }
