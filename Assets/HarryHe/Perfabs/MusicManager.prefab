@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   volume: 1
-  maxVolume: 0.7
+  maxVolume: 0.6
   isMuted: 0
   loopMusic: 1
   fadeInTime: 1
@@ -55,7 +55,7 @@ MonoBehaviour:
   musicSource: {fileID: 5757772642562906367}
   ambientSource: {fileID: 5308831216561547968}
   mainGameSceneMusic: {fileID: 8300000, guid: d537d08f78892d64d98af47d7111fc53, type: 3}
-  conveyorBeltAmbientSound: {fileID: 8300000, guid: d444014e211b4874baa5ad4d8ec26b3d, type: 3}
+  conveyorBeltAmbientSound: {fileID: 8300000, guid: 50fbe8d318c944a438094324e25a7420, type: 3}
 --- !u!82 &5757772642562906367
 AudioSource:
   m_ObjectHideFlags: 0

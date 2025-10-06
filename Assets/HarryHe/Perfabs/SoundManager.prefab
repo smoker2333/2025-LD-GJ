@@ -47,16 +47,16 @@ MonoBehaviour:
   volume: 1
   isMuted: 0
   audioSourcePoolSize: 10
-  playerPullsRopeSound: {fileID: 8300000, guid: 7f2ef849c259ff343840bb84f0ebf986, type: 3}
+  playerPullsRopeSound: {fileID: 8300000, guid: ea579c4f40c14a24c87b84bdc72390bb, type: 3}
   playerReleasesRopeSound: {fileID: 8300000, guid: 8d15dc2da021e1746abf61f7d6589608, type: 3}
   grapplingHookHooksPackageSound: {fileID: 8300000, guid: a617ca845eca80a4dbedf67fabb64155, type: 3}
   packagePlacedInBasketSound: {fileID: 8300000, guid: 9d97798895687c2409eeaac43aa0ee9b, type: 3}
   trapRopeRetrievalSound: {fileID: 0}
   baffleItemTouchingPlateSound: {fileID: 8300000, guid: 67e98118e54ac7144a15d949c1433895, type: 3}
-  laserTriggerSound: {fileID: 8300000, guid: d69aaa9febf8c5741a61fed4137feb00, type: 3}
+  laserTriggerSound: {fileID: 8300000, guid: ac360a71c1efa2a4598fd87229662ec0, type: 3}
   windFieldAmbientSound: {fileID: 0}
-  timedGateOpeningSound: {fileID: 8300000, guid: ff504cdf53f39fb4181a6e3dfafc3cc4, type: 3}
-  timedGateClosingSound: {fileID: 8300000, guid: 6757ade3756757d44bc665321362e8b8, type: 3}
+  timedGateOpeningSound: {fileID: 8300000, guid: 1bd1ce2ec3a19024f94a2df809cfee96, type: 3}
+  timedGateClosingSound: {fileID: 8300000, guid: 4bff2e07962418a44b1af6105415dbf8, type: 3}
   timedBombExplosionSound: {fileID: 8300000, guid: 36d8eab1ab90a49498fabb9a59bb8771, type: 3}
   successSound: {fileID: 8300000, guid: 97b071b5e5f638042b6654c97bf4bce3, type: 3}
   failSound: {fileID: 8300000, guid: ba8b23e63884df64c8f2a402730ea2b8, type: 3}

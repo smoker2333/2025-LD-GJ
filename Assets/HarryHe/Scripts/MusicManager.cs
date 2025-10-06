@@ -5,7 +5,7 @@ public class MusicManager : MonoBehaviour
 {
     public static MusicManager Instance { get; private set; }
     
-    [Header("音乐设置")]
+    [Header("设置")]
     public float volume = 1f;
     public float maxVolume = 0.7f;
     public bool isMuted = false;
@@ -14,11 +14,11 @@ public class MusicManager : MonoBehaviour
     public float fadeOutTime = 1f;
     
     public AudioSource musicSource;
-    public AudioSource ambientSource; // 环境音专用的AudioSource
+    public AudioSource ambientSource;
     
     [Header("背景音乐")]
-    public AudioClip mainGameSceneMusic; // 游戏主场景背景音乐
-    public AudioClip conveyorBeltAmbientSound; // 传送带环境音
+    public AudioClip mainGameSceneMusic;
+    public AudioClip conveyorBeltAmbientSound;
 
     
     private AudioClip currentMusic;
@@ -115,7 +115,7 @@ public class MusicManager : MonoBehaviour
         }
     }
     
-    // 播放环境音（可以同时播放）
+    // 播放环境音
     public void PlayAmbientSound(AudioClip ambientClip)
     {
         if (ambientClip == null || ambientSource == null) return;
