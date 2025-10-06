@@ -4950,6 +4950,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 72
   windControl: {fileID: 467431793843424262}
+  areaEffector2D: {fileID: 0}
   blockAble: 1
 --- !u!249 &5045813945769210031
 AreaEffector2D:
@@ -9921,6 +9922,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 72
   windControl: {fileID: 467431793843424262}
+  areaEffector2D: {fileID: 0}
   blockAble: 1
 --- !u!249 &3533791204251562042
 AreaEffector2D:
@@ -9968,8 +9970,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2906202943992464695}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -7.98, y: 1.44, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -9980,7 +9982,7 @@ Transform:
   - {fileID: 9205198170353231334}
   - {fileID: 1698489103984918856}
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8230447925657451397
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10051,6 +10053,7 @@ MonoBehaviour:
   - {fileID: 4496228957124692066}
   - {fileID: 5890054560843510239}
   - {fileID: 8279587022597992010}
+  fanData: {fileID: 11400000, guid: 14960226eec3c9245973e1f5ac484091, type: 2}
 --- !u!1 &5991600314817404392
 GameObject:
   m_ObjectHideFlags: 0
@@ -15001,6 +15004,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 72
   windControl: {fileID: 467431793843424262}
+  areaEffector2D: {fileID: 0}
   blockAble: 1
 --- !u!249 &8736257661471285071
 AreaEffector2D:
@@ -19972,6 +19976,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 72
   windControl: {fileID: 467431793843424262}
+  areaEffector2D: {fileID: 0}
   blockAble: 1
 --- !u!249 &2244026774809199130
 AreaEffector2D:
@@ -24963,6 +24968,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 72
   windControl: {fileID: 467431793843424262}
+  areaEffector2D: {fileID: 0}
   blockAble: 1
 --- !u!1 &8944996794067448995
 GameObject:
@@ -29914,6 +29920,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 72
   windControl: {fileID: 467431793843424262}
+  areaEffector2D: {fileID: 0}
   blockAble: 1
 --- !u!249 &6012494926609092064
 AreaEffector2D:
