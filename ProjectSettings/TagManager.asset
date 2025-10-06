@@ -57,15 +57,15 @@ TagManager:
   - name: Basket
     uniqueID: 3677604271
     locked: 0
-  - name: Object
-    uniqueID: 1866356807
-    locked: 0
-  - name: Player
-    uniqueID: 1644406785
-    locked: 0
   - name: Belt1
     uniqueID: 2596131669
     locked: 0
   - name: Belt2
     uniqueID: 2064229837
+    locked: 0
+  - name: Object
+    uniqueID: 1866356807
+    locked: 0
+  - name: Player
+    uniqueID: 1644406785
     locked: 0
