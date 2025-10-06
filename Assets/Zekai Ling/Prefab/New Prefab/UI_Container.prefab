@@ -334,6 +334,7 @@ MonoBehaviour:
   loseUI: {fileID: 6963742366348767947}
   winUI: {fileID: 3350418801722645691}
   pauseUI: {fileID: 5583441543693527540}
+  needText: {fileID: 0}
 --- !u!1 &1305020435207441365
 GameObject:
   m_ObjectHideFlags: 0
@@ -542,8 +543,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278983935
-  m_fontColor: {r: 1, g: 0.108380735, b: 0.047169685, a: 1}
+    rgba: 4279027455
+  m_fontColor: {r: 1, g: 0.7766811, b: 0.04705882, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
