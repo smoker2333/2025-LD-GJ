@@ -182,10 +182,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b558b1dfadc28e34896317df106f934f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionDelay: 2
+  explosionDelay: 5
   explosionMaxRadius: 3
   explosionMinRadius: 1
-  force: 15
+  force: 100
   forceMultiplier: 3
 --- !u!114 &3122097235946571262
 MonoBehaviour:
@@ -201,6 +201,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectValue: 10
   objectWeight: 2
+  objectData: {fileID: 11400000, guid: 1d18712833d872c438fcf4ad3b6518fa, type: 2}
 --- !u!50 &6098593507620493457
 Rigidbody2D:
   serializedVersion: 4
