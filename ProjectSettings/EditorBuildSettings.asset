@@ -8,21 +8,18 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Zekai Ling/Scene/Using/StartScene.unity
     guid: a8bffdebba598954582bdb53ed92283c
-  - enabled: 1
+  - enabled: 0
     path: Assets/Zekai Ling/Scene/Using/Level-1.unity
     guid: b3c0fb1caad416a478b44f1c4bc1e4c9
-  - enabled: 1
+  - enabled: 0
     path: Assets/Zekai Ling/Scene/Using/Level-2.unity
     guid: caa2abfd26d69d14fb19af826773345f
-  - enabled: 1
+  - enabled: 0
     path: Assets/Zekai Ling/Scene/Using/Level-3.unity
     guid: 9202837f981d8fc47b78607689ed95b8
-  - enabled: 1
+  - enabled: 0
     path: Assets/Zekai Ling/Scene/Using/Level-4.unity
     guid: 4994af3fea61e9146b5ac75e706ba58a
-  - enabled: 1
-    path: Assets/Zekai Ling/Scene/Using/Thanks For Playing.unity
-    guid: e648aade059fa82419e496d423b8bda0
   - enabled: 1
     path: Assets/Kui Zhang/Scene-Level/Level-1.unity
     guid: 9a8b295e1195d8e4ab3125b5b878b1e3
@@ -41,4 +38,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Kui Zhang/Scene-Level/Level-6.unity
     guid: da83824af79024f4eae6553d45607b6e
+  - enabled: 1
+    path: Assets/Zekai Ling/Scene/Using/Thanks For Playing.unity
+    guid: e648aade059fa82419e496d423b8bda0
   m_configObjects: {}
