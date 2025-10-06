@@ -736,6 +736,38 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 9.3
       objectReference: {fileID: 0}
+    - target: {fileID: 7293749616934404641, guid: 24e420e8f81d23c40bf71b147d34f5a4, type: 3}
+      propertyPath: objectPrefabs.Array.size
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 7293749616934404641, guid: 24e420e8f81d23c40bf71b147d34f5a4, type: 3}
+      propertyPath: objectPrefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 2613240589158998981, guid: a871ab9cbd6fa7c4c9ff256d394df73d, type: 3}
+    - target: {fileID: 7293749616934404641, guid: 24e420e8f81d23c40bf71b147d34f5a4, type: 3}
+      propertyPath: objectPrefabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 2613240589158998981, guid: 897625ba9a3327f459c0c29a851f7426, type: 3}
+    - target: {fileID: 7293749616934404641, guid: 24e420e8f81d23c40bf71b147d34f5a4, type: 3}
+      propertyPath: objectPrefabs.Array.data[2]
+      value: 
+      objectReference: {fileID: 2613240589158998981, guid: 6038f32fa5cd96b4d96c41f39b4a8a22, type: 3}
+    - target: {fileID: 7293749616934404641, guid: 24e420e8f81d23c40bf71b147d34f5a4, type: 3}
+      propertyPath: objectPrefabs.Array.data[3]
+      value: 
+      objectReference: {fileID: 2613240589158998981, guid: 897625ba9a3327f459c0c29a851f7426, type: 3}
+    - target: {fileID: 7293749616934404641, guid: 24e420e8f81d23c40bf71b147d34f5a4, type: 3}
+      propertyPath: objectPrefabs.Array.data[4]
+      value: 
+      objectReference: {fileID: 2613240589158998981, guid: a871ab9cbd6fa7c4c9ff256d394df73d, type: 3}
+    - target: {fileID: 7293749616934404641, guid: 24e420e8f81d23c40bf71b147d34f5a4, type: 3}
+      propertyPath: objectPrefabs.Array.data[5]
+      value: 
+      objectReference: {fileID: 2613240589158998981, guid: 6038f32fa5cd96b4d96c41f39b4a8a22, type: 3}
+    - target: {fileID: 7293749616934404641, guid: 24e420e8f81d23c40bf71b147d34f5a4, type: 3}
+      propertyPath: objectPrefabs.Array.data[10]
+      value: 
+      objectReference: {fileID: 2613240589158998981, guid: 897625ba9a3327f459c0c29a851f7426, type: 3}
     - target: {fileID: 8914505899148387111, guid: 24e420e8f81d23c40bf71b147d34f5a4, type: 3}
       propertyPath: m_Name
       value: WholeProcess

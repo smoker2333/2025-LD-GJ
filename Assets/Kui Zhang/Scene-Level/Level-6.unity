@@ -385,6 +385,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Door
       objectReference: {fileID: 0}
+    - target: {fileID: 4893577172153496119, guid: b4183a11b94c1d2438d1e58e3b67f9ea, type: 3}
+      propertyPath: openInterval
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6317532643046611120, guid: b4183a11b94c1d2438d1e58e3b67f9ea, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.92
@@ -538,6 +542,10 @@ PrefabInstance:
     - target: {fileID: 1416581852756574746, guid: 60eac4f3a7690ba4895cacaa7c5f4e05, type: 3}
       propertyPath: m_Name
       value: Door (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4893577172153496119, guid: 60eac4f3a7690ba4895cacaa7c5f4e05, type: 3}
+      propertyPath: openInterval
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 6317532643046611120, guid: 60eac4f3a7690ba4895cacaa7c5f4e05, type: 3}
       propertyPath: m_LocalScale.x
@@ -797,6 +805,18 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 6.89
       objectReference: {fileID: 0}
+    - target: {fileID: 7293749616934404641, guid: 24e420e8f81d23c40bf71b147d34f5a4, type: 3}
+      propertyPath: objectPrefabs.Array.size
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 7293749616934404641, guid: 24e420e8f81d23c40bf71b147d34f5a4, type: 3}
+      propertyPath: objectPrefabs.Array.data[10]
+      value: 
+      objectReference: {fileID: 2613240589158998981, guid: a871ab9cbd6fa7c4c9ff256d394df73d, type: 3}
+    - target: {fileID: 7293749616934404641, guid: 24e420e8f81d23c40bf71b147d34f5a4, type: 3}
+      propertyPath: objectPrefabs.Array.data[11]
+      value: 
+      objectReference: {fileID: 2613240589158998981, guid: a871ab9cbd6fa7c4c9ff256d394df73d, type: 3}
     - target: {fileID: 8914505899148387111, guid: 24e420e8f81d23c40bf71b147d34f5a4, type: 3}
       propertyPath: m_Name
       value: WholeProcess
@@ -925,7 +945,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7465582913137291254, guid: 84aa1f86230071e4784c33cb46755dd8, type: 3}
       propertyPath: timeLimitInSeconds
-      value: 30
+      value: 40
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

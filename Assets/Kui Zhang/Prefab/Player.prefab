@@ -176,7 +176,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clawData: {fileID: 11400000, guid: 30e3e682e15ea4e40b98cde77456fa97, type: 2}
   frequency: 3
-  dampingRatio: 0.5
+  dampingRatio: 0.3
   maxDistance: 4
   targetClaw: {fileID: 6011431466032090163}
   isClawing: 0
