@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Door : MonoBehaviour
+public class VerticalDoor : MonoBehaviour
 {
-    public GameObject leftDoor;
-    public GameObject rightDoor;
+    public GameObject topDoor;
+    public GameObject bottomDoor;
 
     public float openDuration;//开门动作所需的时间
     public float closeDuration;//关门动作所需的时间
@@ -13,13 +13,13 @@ public class Door : MonoBehaviour
     public float closeInterval;//关门后到开门的间隔时间
     public float doorOpenDistance;
     
-    private Vector3 leftDoorStartPos;
-    private Vector3 rightDoorStartPos;
+    private Vector3 topDoorStartPos;
+    private Vector3 bottomDoorStartPos;
     // Start is called before the first frame update
     void Start()
     {
-        leftDoorStartPos = leftDoor.transform.position;
-        rightDoorStartPos = rightDoor.transform.position;
+        topDoorStartPos = topDoor.transform.position;
+        bottomDoorStartPos = bottomDoor.transform.position;
         DoorMovement();
     }
 
@@ -54,8 +54,8 @@ public class Door : MonoBehaviour
 
     private IEnumerator OpenDoor()
     {
-        Vector3 leftTarget = leftDoorStartPos - transform.right * doorOpenDistance;
-        Vector3 rightTarget = rightDoorStartPos + transform.right * doorOpenDistance;
+        Vector3 topTarget = topDoorStartPos + transform.up * doorOpenDistance;
+        Vector3 bottomTarget = bottomDoorStartPos - transform.up * doorOpenDistance;
         
         float elapsedTime = 0;
         while (elapsedTime < openDuration)
@@ -63,8 +63,8 @@ public class Door : MonoBehaviour
             elapsedTime += Time.deltaTime;
             float progress = elapsedTime / openDuration;
             
-            leftDoor.transform.position = Vector3.Lerp(leftDoorStartPos, leftTarget, progress);
-            rightDoor.transform.position = Vector3.Lerp(rightDoorStartPos, rightTarget, progress);
+            topDoor.transform.position = Vector3.Lerp(topDoorStartPos, topTarget, progress);
+            bottomDoor.transform.position = Vector3.Lerp(bottomDoorStartPos, bottomTarget, progress);
             
             yield return null;
         }
@@ -72,8 +72,8 @@ public class Door : MonoBehaviour
 
     private IEnumerator CloseDoor()
     {
-        Vector3 leftCurrent = leftDoor.transform.position;
-        Vector3 rightCurrent = rightDoor.transform.position;
+        Vector3 topCurrent = topDoor.transform.position;
+        Vector3 bottomCurrent = bottomDoor.transform.position;
         
         float elapsedTime = 0;
         while (elapsedTime < closeDuration)
@@ -81,8 +81,8 @@ public class Door : MonoBehaviour
             elapsedTime += Time.deltaTime;
             float progress = elapsedTime / closeDuration;
             
-            leftDoor.transform.position = Vector3.Lerp(leftCurrent, leftDoorStartPos, progress);
-            rightDoor.transform.position = Vector3.Lerp(rightCurrent, rightDoorStartPos, progress);
+            topDoor.transform.position = Vector3.Lerp(topCurrent, topDoorStartPos, progress);
+            bottomDoor.transform.position = Vector3.Lerp(bottomCurrent, bottomDoorStartPos, progress);
             
             yield return null;
         }
