@@ -488,7 +488,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5935821570490257471, guid: 02ef347a3942b2c46acd3d140db04595, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.27
+      value: -0.66
       objectReference: {fileID: 0}
     - target: {fileID: 5935821570490257471, guid: 02ef347a3942b2c46acd3d140db04595, type: 3}
       propertyPath: m_LocalPosition.z
@@ -720,6 +720,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7465582913137291254, guid: 704746cc83e082247851559c7dc55505, type: 3}
+      propertyPath: scoreToWinGame
+      value: 70
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -832,6 +836,10 @@ PrefabInstance:
     - target: {fileID: 2418113034489011036, guid: 24e420e8f81d23c40bf71b147d34f5a4, type: 3}
       propertyPath: m_LocalPosition.y
       value: 9.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5894887065581517664, guid: 24e420e8f81d23c40bf71b147d34f5a4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7293749616934404641, guid: 24e420e8f81d23c40bf71b147d34f5a4, type: 3}
       propertyPath: objectPrefabs.Array.size
@@ -1002,7 +1010,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2900765129775619921, guid: dc770f87e7303a94cb66d23472ee1df3, type: 3}
       propertyPath: dampingRatio
-      value: 0.6
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 6706613052883094094, guid: dc770f87e7303a94cb66d23472ee1df3, type: 3}
       propertyPath: m_LocalPosition.x
