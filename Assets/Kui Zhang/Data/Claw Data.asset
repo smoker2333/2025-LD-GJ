@@ -15,7 +15,7 @@ MonoBehaviour:
   originalLinearDrag: 0.15
   releaedLinearDrag: 4
   frequency: 3
-  dampingRatio: 0.5
+  dampingRatio: 0.4
   maxDistance: 4
   lineMaterial: {fileID: 15303, guid: 0000000000000000f000000000000000, type: 0}
   lineWidth: 0.1
