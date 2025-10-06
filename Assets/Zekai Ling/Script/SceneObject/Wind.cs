@@ -15,9 +15,9 @@ public class Wind : MonoBehaviour
     private bool isPlaying = false;
     private ParticleSystem particleSystem;
 
-    AreaEffector2D areaEffector2D; // AreaEffector2D×é¼þ
+    AreaEffector2D areaEffector2D; // AreaEffector2Dï¿½ï¿½ï¿½
 
-    public bool blockAble = false; //ÊÇ·ñ¿ÉÒÔ×èµ²
+    public bool blockAble = false; //ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½èµ²
     private void Start()
     {
         areaEffector2D= GetComponent<AreaEffector2D>();
@@ -36,14 +36,16 @@ public class Wind : MonoBehaviour
        // if(windControl.isStart)
         {
             if(areaEffector2D != null)
-            areaEffector2D.enabled = true; // ¿ªÆôAreaEffector2D×é¼þ
+            areaEffector2D.enabled = true; // ï¿½ï¿½ï¿½ï¿½AreaEffector2Dï¿½ï¿½ï¿½
+            SoundManager.Instance.PlaySound(SoundManager.Instance.windFieldAmbientSound);
+            
             particleSystem.Play();
             isPlaying = true;
         }
        /* else
         {
             if (areaEffector2D != null)
-                areaEffector2D.enabled = false; // ¹Ø±ÕAreaEffector2D×é¼þ
+                areaEffector2D.enabled = false; // ï¿½Ø±ï¿½AreaEffector2Dï¿½ï¿½ï¿½
             particleSystem.Stop();
             isPlaying = false;
         }*/
@@ -65,21 +67,21 @@ public class Wind : MonoBehaviour
              {
                  return;
              }
-             //·¢ÉäRaycast2DÉäÏß£¬¼ì²âÊÇ·ñÓÐÎïÌå±»ÉäÏß¼ì²âµ½£¬¼ì²âËùÓÐlayer
+             //ï¿½ï¿½ï¿½ï¿½Raycast2Dï¿½ï¿½ï¿½ß£ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½å±»ï¿½ï¿½ï¿½ß¼ï¿½âµ½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½layer
              RaycastHit2D hit = Physics2D.Raycast(origin, raycastDirection, raycastLength, targetLayerMask);
-             //»æÖÆRaycastÏßÌõ
+             //ï¿½ï¿½ï¿½ï¿½Raycastï¿½ï¿½ï¿½ï¿½
              Debug.DrawLine(origin, origin + raycastDirection * raycastLength, Color.red);
 
-             //¼ì²âÊÇ·ñÓÐÎïÌå±»Raycast¼ì²âµ½
+             //ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½å±»Raycastï¿½ï¿½âµ½
              if (hit.collider != null)
              {
-                 //Èç¹û¼ì²âµ½µÄÎªGround£¬Ôò·µ»Ø
+                 //ï¿½ï¿½ï¿½ï¿½ï¿½âµ½ï¿½ï¿½ÎªGroundï¿½ï¿½ï¿½ò·µ»ï¿½
                  if (hit.collider.CompareTag("Ground"))
                  {
                      return;
                  }
 
-                 //Èç¹ûÄ¿±êÎïÌåµÄtagÎªPlayer»òÕßEnemy£¬»òÕßSceneObject£¬²ÅÄÜ¼ÌÐøÖ´ÐÐ£¬ÓÃcomparetag·½·¨
+                 //ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½tagÎªPlayerï¿½ï¿½ï¿½ï¿½Enemyï¿½ï¿½ï¿½ï¿½ï¿½ï¿½SceneObjectï¿½ï¿½ï¿½ï¿½ï¿½Ü¼ï¿½ï¿½ï¿½Ö´ï¿½Ð£ï¿½ï¿½ï¿½comparetagï¿½ï¿½ï¿½ï¿½
                  else if (hit.collider.CompareTag("Player") || hit.collider.CompareTag("SceneObject"))
                  {
                      if(myObject==null)
@@ -95,7 +97,7 @@ public class Wind : MonoBehaviour
              }
              else
              {
-                 //Èç¹ûÃ»ÓÐ¼ì²âµ½ÎïÌå£¬Ôò²»Ö´ÐÐÈÎºÎ²Ù×÷
+                 //ï¿½ï¿½ï¿½Ã»ï¿½Ð¼ï¿½âµ½ï¿½ï¿½ï¿½å£¬ï¿½ï¿½Ö´ï¿½ï¿½ï¿½ÎºÎ²ï¿½ï¿½ï¿½
                  if (myObject != null)
                  {
                      myObject = null;
@@ -110,14 +112,14 @@ public class Wind : MonoBehaviour
                  particleSystem.Stop();
              }
          }*/
-        //·¢ÉäÉäÏß½øÐÐ¼ì²â£¬Èç¹ûÊÇÍæ¼Ò»ò³¡¾°ÎïÆ·£¬Ôò½«Ä¿±êÎïÌå°ó¶¨µÄËùÓÐCollider2D×é¼þµÄusedByEffectorÊôÐÔÉèÖÃÎªfalse
-        //¹Ø±ÕÄ¿±êÎïÌåÉÏµÄWindCount×é¼þ
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß½ï¿½ï¿½Ð¼ï¿½â£¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ò³¡¾ï¿½ï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ó¶¨µï¿½ï¿½ï¿½ï¿½ï¿½Collider2Dï¿½ï¿½ï¿½ï¿½ï¿½usedByEffectorï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îªfalse
+        //ï¿½Ø±ï¿½Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ïµï¿½WindCountï¿½ï¿½ï¿½
         RaycastHit2D hit = Physics2D.Raycast(origin, raycastDirection, raycastLength, targetLayerMask);
         Debug.DrawLine(origin, origin + raycastDirection * raycastLength, Color.red);
         if (hit.collider != null)
         {
            
-            //Èç¹ûÄ¿±êÎïÌåµÄtagÎªPlayer»òÕßSceneObject£¬²ÅÄÜ¼ÌÐøÖ´ÐÐ£¬ÓÃcomparetag·½·¨
+            //ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½tagÎªPlayerï¿½ï¿½ï¿½ï¿½SceneObjectï¿½ï¿½ï¿½ï¿½ï¿½Ü¼ï¿½ï¿½ï¿½Ö´ï¿½Ð£ï¿½ï¿½ï¿½comparetagï¿½ï¿½ï¿½ï¿½
             if (hit.collider.CompareTag("Player") || hit.collider.CompareTag("SceneObject"))
             {
                 if (hit.collider.CompareTag("Player") || hit.collider.CompareTag("SceneObject"))
@@ -125,10 +127,10 @@ public class Wind : MonoBehaviour
                     WindCount windCount = hit.collider.GetComponent<WindCount>();
                     if (windCount != null)
                     {
-                        windCount.enabled = false; // ¹Ø±ÕWindCount×é¼þ
+                        windCount.enabled = false; // ï¿½Ø±ï¿½WindCountï¿½ï¿½ï¿½
                         foreach (Collider2D col in hit.collider.GetComponents<Collider2D>())
                         {
-                            col.usedByEffector = false; // ÉèÖÃusedByEffectorÎªfalse
+                            col.usedByEffector = false; // ï¿½ï¿½ï¿½ï¿½usedByEffectorÎªfalse
                         }
                     }
                 }
@@ -136,7 +138,7 @@ public class Wind : MonoBehaviour
         }
         else
         {
-            //Èç¹ûÃ»ÓÐ¼ì²âµ½ÎïÌå£¬Ôò²»Ö´ÐÐÈÎºÎ²Ù×÷
+            //ï¿½ï¿½ï¿½Ã»ï¿½Ð¼ï¿½âµ½ï¿½ï¿½ï¿½å£¬ï¿½ï¿½Ö´ï¿½ï¿½ï¿½ÎºÎ²ï¿½ï¿½ï¿½
             if (myObject != null)
             {
                 myObject = null;
@@ -144,8 +146,8 @@ public class Wind : MonoBehaviour
         }
     }
 
-    //Èç¹û if (windControl.isStart)£¬Ôò¿ªÆô×ÔÉíµÄareaEffect2D×é¼þ,ÇÒÁ£×ÓÏµÍ³¿ªÊ¼²¥·Å
-    //Èç¹û if (!windControl.isStart)£¬Ôò¹Ø±Õ×ÔÉíµÄareaEffect2D×é¼þ,ÇÒÁ£×ÓÏµÍ³Í£Ö¹²¥·Å
+    //ï¿½ï¿½ï¿½ if (windControl.isStart)ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½areaEffect2Dï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÏµÍ³ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½
+    //ï¿½ï¿½ï¿½ if (!windControl.isStart)ï¿½ï¿½ï¿½ï¿½Ø±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½areaEffect2Dï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÏµÍ³Í£Ö¹ï¿½ï¿½ï¿½ï¿½
     private void SwitchPower()
     {
        // if (windControl.isStart)
@@ -154,7 +156,7 @@ public class Wind : MonoBehaviour
             {
                 isPlaying = true;
                 if (areaEffector2D != null)
-                    areaEffector2D.enabled = true; // ¿ªÆôAreaEffector2D×é¼þ
+                    areaEffector2D.enabled = true; // ï¿½ï¿½ï¿½ï¿½AreaEffector2Dï¿½ï¿½ï¿½
                 particleSystem.Play();
             }
         }
@@ -164,19 +166,19 @@ public class Wind : MonoBehaviour
             {
                 isPlaying = false;
                 if (areaEffector2D != null)
-                    areaEffector2D.enabled = false; // ¹Ø±ÕAreaEffector2D×é¼þ
+                    areaEffector2D.enabled = false; // ï¿½Ø±ï¿½AreaEffector2Dï¿½ï¿½ï¿½
                 particleSystem.Stop();
             }
         }*/
     }
 
-    //½øÈëtriggerÊ±£¬½«Ä¿±êÎïÌå°ó¶¨µÄËùÓÐCollider2D×é¼þµÄusedByEffectorÊôÐÔÉèÖÃÎªfalse
-    //¹Ø±ÕÄ¿±êÎïÌåÉÏµÄWindCount×é¼þ
+    //ï¿½ï¿½ï¿½ï¿½triggerÊ±ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ó¶¨µï¿½ï¿½ï¿½ï¿½ï¿½Collider2Dï¿½ï¿½ï¿½ï¿½ï¿½usedByEffectorï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îªfalse
+    //ï¿½Ø±ï¿½Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ïµï¿½WindCountï¿½ï¿½ï¿½
     private void OnTriggerEnter2D(Collider2D collision)
     {
        
     }
-    //Àë¿ªtriggerÊ±£¬½«Ä¿±êÎïÌå°ó¶¨µÄËùÓÐCollider2D×é¼þµÄusedByEffectorÊôÐÔÉèÖÃÎªtrue
+    //ï¿½ë¿ªtriggerÊ±ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ó¶¨µï¿½ï¿½ï¿½ï¿½ï¿½Collider2Dï¿½ï¿½ï¿½ï¿½ï¿½usedByEffectorï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îªtrue
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.CompareTag("Player") || collision.CompareTag("SceneObject"))
@@ -184,10 +186,10 @@ public class Wind : MonoBehaviour
             WindCount windCount = collision.GetComponent<WindCount>();
             if (windCount != null)
             {
-                windCount.enabled = true; // ¿ªÆôWindCount×é¼þ
+                windCount.enabled = true; // ï¿½ï¿½ï¿½ï¿½WindCountï¿½ï¿½ï¿½
                 foreach (Collider2D col in collision.GetComponents<Collider2D>())
                 {
-                    col.usedByEffector = true; // ÉèÖÃusedByEffectorÎªtrue
+                    col.usedByEffector = true; // ï¿½ï¿½ï¿½ï¿½usedByEffectorÎªtrue
                 }
             }
         }

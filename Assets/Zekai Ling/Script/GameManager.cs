@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
-    //·ÖÊı²¿·Ö
+    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     public float currentGameScore;
 
     public float scoreToWinGame;
@@ -17,9 +17,9 @@ public class GameManager : MonoBehaviour
     public Action loseGameEvent;
     public Action winGameEvent;
     public Action<float, Vector3> addScoreEvent;
-    public event Action<float> OnTimeChanged;// Ê±¼ä±ä»¯ÊÂ¼ş
+    public event Action<float> OnTimeChanged;// Ê±ï¿½ï¿½ä»¯ï¿½Â¼ï¿½
 
-    public float timeLimitInSeconds = 60f; // ÓÎÏ·Ê±¼äÏŞÖÆ£¬µ¥Î»ÎªÃë
+    public float timeLimitInSeconds = 60f; // ï¿½ï¿½Ï·Ê±ï¿½ï¿½ï¿½ï¿½ï¿½Æ£ï¿½ï¿½ï¿½Î»Îªï¿½ï¿½
     private float currentTime;
 
     public bool isPaused = false;
@@ -64,20 +64,20 @@ public class GameManager : MonoBehaviour
     {
         while (currentTime > 0)
         {
-            // ÔİÍ£Ê±²»µİ¼õ
+            // ï¿½ï¿½Í£Ê±ï¿½ï¿½ï¿½İ¼ï¿½
             while (isPaused)
                 yield return null;
 
             currentTime -= Time.deltaTime;         
-            yield return null; // Ã¿Ö¡Ö´ĞĞÒ»´Î                              
-            OnTimeChanged?.Invoke(currentTime);// Í¨Öª UI ¸üĞÂÊ±¼ä
+            yield return null; // Ã¿Ö¡Ö´ï¿½ï¿½Ò»ï¿½ï¿½                              
+            OnTimeChanged?.Invoke(currentTime);// Í¨Öª UI ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½
         }
        GameLose();
     }
 
 
 
-    //¼Ó·ÖÊÂ¼ş
+    //ï¿½Ó·ï¿½ï¿½Â¼ï¿½
     public void AddScore(float scoreToAdd, Vector3 position)
     {
         currentGameScore += scoreToAdd;
@@ -109,6 +109,10 @@ public class GameManager : MonoBehaviour
     public void StarTheGame()
     {
         ResetData();
+        
+        // æ’­æ”¾æ¸¸æˆä¸»åœºæ™¯èƒŒæ™¯éŸ³ä¹
+        MusicManager.Instance.PlayMusic(MusicManager.Instance.mainGameSceneMusic);
+        
         if (countTimeCoroutine != null)
         {
             StopCoroutine(countTimeCoroutine);
@@ -120,7 +124,7 @@ public class GameManager : MonoBehaviour
             countTimeCoroutine = StartCoroutine(CountdownRoutine());
         }
        
-       
+        
     }
     public void ResetData()
     {
@@ -138,7 +142,7 @@ public class GameManager : MonoBehaviour
         {
            isPaused=true;
         }
-        Time.timeScale=0f;//ÔİÍ£ÓÎÏ·
+        Time.timeScale=0f;//ï¿½ï¿½Í£ï¿½ï¿½Ï·
     }
 
     public void ResumeTheGame()
@@ -147,14 +151,18 @@ public class GameManager : MonoBehaviour
         {
           isPaused=false;
         }
-        Time.timeScale=1f;//»Ö¸´ÓÎÏ·
+        Time.timeScale=1f;//ï¿½Ö¸ï¿½ï¿½ï¿½Ï·
     }
 
     public void GameLose()
     {
         if (!IsGameWined)
         {
-            PauseTheGame();           
+            PauseTheGame();
+            
+            // æ’­æ”¾æ¸¸æˆå¤±è´¥éŸ³æ•ˆ
+            SoundManager.Instance.PlaySound(SoundManager.Instance.failSound);
+            
             loseGameEvent?.Invoke();
         }       
     }
@@ -162,6 +170,10 @@ public class GameManager : MonoBehaviour
     public void GameWin()
     {
        // PauseTheGame();
+       
+       // æ’­æ”¾æ¸¸æˆæˆåŠŸéŸ³æ•ˆ
+       SoundManager.Instance.PlaySound(SoundManager.Instance.successSound);
+       
        winGameEvent?.Invoke();
         IsGameWined = true;
     }
@@ -173,7 +185,7 @@ public class GameManager : MonoBehaviour
 
     public void LoadNextLevel()
     {
-        //¼ÓÔØÏÂÒ»¸ö³¡¾°
+        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
         if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
         {
@@ -182,14 +194,14 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            Debug.Log("ÒÑ¾­ÊÇ×îºóÒ»¸ö³¡¾°£¬ÎŞ·¨¼ÓÔØÏÂÒ»¸ö³¡¾°¡£");
+            Debug.Log("ï¿½Ñ¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ş·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
         }
 
     }
 
     public void RestartTheGame()
     {
-        //ÖØĞÂ¿ªÊ¼µ±Ç°³¡¾°
+        //ï¿½ï¿½ï¿½Â¿ï¿½Ê¼ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         StarTheGame();
     }

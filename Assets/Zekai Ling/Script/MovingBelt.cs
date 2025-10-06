@@ -4,26 +4,28 @@ using UnityEngine;
 
 public class MovingBelt : MonoBehaviour
 {
-    [Header("Éú³ÉÉèÖÃ")]
+    [Header("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½")]
     public Transform beltSpawnPoint;
     public BeltPlatform beltPlatformPrefab;
 
-    [Header("´«ËÍ´ø²ÎÊý")]
+    [Header("ï¿½ï¿½ï¿½Í´ï¿½ï¿½ï¿½ï¿½ï¿½")]
     public float spawnInterval = 0.5f;
     public float speed = 2f;
 
-    [Header("¶ÔÏó³ØÉèÖÃ")]
-    public int poolSize = 10; // Ô¤ÏÈ´´½¨µÄÊýÁ¿
+    [Header("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½")]
+    public int poolSize = 10; // Ô¤ï¿½È´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
     private List<BeltPlatform> platformPool;
     private int currentIndex = 0;
 
     private void Start()
     {
-        //³õÊ¼»¯¶ÔÏó³Ø
+        //ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         InitializePool();
 
-        //Æô¶¯Ñ­»·Éú³É
+        //ï¿½ï¿½ï¿½ï¿½Ñ­ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+        MusicManager.Instance.PlayAmbientSound(MusicManager.Instance.conveyorBeltAmbientSound);
+        
         InvokeRepeating(nameof(SpawnPlatformTick), 0f, spawnInterval);
 
     }
@@ -40,18 +42,18 @@ public class MovingBelt : MonoBehaviour
         for (int i = 0; i < poolSize; i++)
         {
             BeltPlatform newPlatform = Instantiate(beltPlatformPrefab);
-            newPlatform.gameObject.SetActive(false);  // ÏÈÒþ²Ø
+            newPlatform.gameObject.SetActive(false);  // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
             platformPool.Add(newPlatform);
         }
     }
 
     private void SpawnPlatform(Vector3 newPosition)
     {
-        //»ñÈ¡Ò»¸öÎ´Ê¹ÓÃµÄÆ½Ì¨
+        //ï¿½ï¿½È¡Ò»ï¿½ï¿½Î´Ê¹ï¿½Ãµï¿½Æ½Ì¨
         BeltPlatform platform = GetPooledPlatform();
         if (platform == null)
         {
-            // ³ØÖÐÈ«ÓÃÍê¾ÍÀ©ÈÝ£¨¿ÉÑ¡£©
+            // ï¿½ï¿½ï¿½ï¿½È«ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý£ï¿½ï¿½ï¿½Ñ¡ï¿½ï¿½
             platform = Instantiate(beltPlatformPrefab);
             platformPool.Add(platform);
         }
@@ -60,19 +62,19 @@ public class MovingBelt : MonoBehaviour
 
     public void SetNewPosistion(BeltPlatform platform, Vector3 newPosition)
     {
-        // ¼¤»î²¢ÉèÖÃ³õÊ¼×´Ì¬
+        // ï¿½ï¿½ï¿½î²¢ï¿½ï¿½ï¿½Ã³ï¿½Ê¼×´Ì¬
         platform.transform.position = newPosition;
         platform.speed = speed;
         platform.gameObject.SetActive(true);
     }
 
-    //µ±ObjectÅöµ½´«ËÍ´øÊ±£¬ÔÚ¶ÔÓ¦µÄXÖáÎ»ÖÃÉú³ÉÒ»¸ö´«ËÍ´øÆ½Ì¨£¬YÖáÎ»ÖÃÓëÉú³ÉµãÏàÍ¬
+    //ï¿½ï¿½Objectï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í´ï¿½Ê±ï¿½ï¿½ï¿½Ú¶ï¿½Ó¦ï¿½ï¿½Xï¿½ï¿½Î»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½Í´ï¿½Æ½Ì¨ï¿½ï¿½Yï¿½ï¿½Î»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Éµï¿½ï¿½ï¿½Í¬
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Object"))
         {
             Vector3 spawnPlatformPosition = new Vector3(collision.transform.position.x, beltSpawnPoint.position.y, 0);
-            Debug.Log("ÔÚXÖáÎ»ÖÃ" + spawnPlatformPosition.x + "Éú³É´«ËÍ´ø");
+            Debug.Log("ï¿½ï¿½Xï¿½ï¿½Î»ï¿½ï¿½" + spawnPlatformPosition.x + "ï¿½ï¿½ï¿½É´ï¿½ï¿½Í´ï¿½");
             SpawnPlatform(spawnPlatformPosition);
         }
     }
@@ -81,7 +83,7 @@ public class MovingBelt : MonoBehaviour
 
     private BeltPlatform GetPooledPlatform()
     {
-        // ´Ó³ØÖÐÕÒÒ»¸öÎ´¼¤»îµÄ
+        // ï¿½Ó³ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½Î´ï¿½ï¿½ï¿½ï¿½ï¿½
         foreach (var plat in platformPool)
         {
             if (!plat.gameObject.activeInHierarchy)
@@ -89,24 +91,24 @@ public class MovingBelt : MonoBehaviour
                 return plat;
             }
         }
-        return null; // ³Ø×ÓÈ«±»Õ¼ÓÃ
+        return null; // ï¿½ï¿½ï¿½ï¿½È«ï¿½ï¿½Õ¼ï¿½ï¿½
     }
 
-    // public float forceAmount = 5f;    // Ê©¼ÓµÄÁ¦µÄ´óÐ¡
-    //public Vector2 direction = Vector2.right; // ÒÆ¶¯·½Ïò£¨ÓÒ£©
+    // public float forceAmount = 5f;    // Ê©ï¿½Óµï¿½ï¿½ï¿½ï¿½Ä´ï¿½Ð¡
+    //public Vector2 direction = Vector2.right; // ï¿½Æ¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò£ï¿½
 
     /* private void OnCollisionStay2D(Collision2D collision)
      {
          Rigidbody2D rb = collision.rigidbody;
          if (rb != null)
          {
-             // ÑØ×Å´«ËÍ´ø·½ÏòÊ©¼ÓËÙ¶È
+             // ï¿½ï¿½ï¿½Å´ï¿½ï¿½Í´ï¿½ï¿½ï¿½ï¿½ï¿½Ê©ï¿½ï¿½ï¿½Ù¶ï¿½
              rb.velocity = new Vector2(direction.x * speed, rb.velocity.y);
          }
         *//* Rigidbody2D rb = collision.rigidbody;
          if (rb != null)
          {
-             // ³ÖÐøÊ©¼ÓÒ»¸öÏòÓÒµÄÍÆÁ¦£¬¶ø²»ÊÇÐÞ¸ÄËÙ¶È
+             // ï¿½ï¿½ï¿½ï¿½Ê©ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½Òµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Þ¸ï¿½ï¿½Ù¶ï¿½
              rb.AddForce(Vector2.right * forceAmount, ForceMode2D.Force);
          }*//*
      }*/

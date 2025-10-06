@@ -11,7 +11,10 @@ public class Bomb : MonoBehaviour
     public float forceMultiplier;//爆炸倍率(随距离炸弹的范围线性变化？)
     
     private float timer;//当前倒计时
+    private bool hasPlayedWarningSound = false;//是否已播放警告音效
     
+    public ParticleSystem explosionEffect; // 爆炸特效预制件
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +25,13 @@ public class Bomb : MonoBehaviour
     void Update()
     {
         timer -= Time.deltaTime;
+        
+        // 提前1秒播放爆炸音效
+        if (timer <= 1.0f && timer > 0 && !hasPlayedWarningSound)
+        {
+            SoundManager.Instance.PlaySound(SoundManager.Instance.timedBombExplosionSound);
+            hasPlayedWarningSound = true;
+        }
         
         if (timer <= 0)
         {
@@ -51,7 +61,14 @@ public class Bomb : MonoBehaviour
                 rb.AddForce(direction * explosionForce, ForceMode2D.Impulse);
             }
         }
-        
+
+        //在爆炸位置实例化爆炸特效
+        if (explosionEffect != null)
+        {
+            ParticleSystem newExplode = Instantiate(explosionEffect, transform.position, Quaternion.identity);
+            newExplode.Play();
+        }           
+
         Debug.Log("炸弹爆炸");
         Destroy(gameObject);
     }
