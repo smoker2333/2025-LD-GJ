@@ -48,12 +48,12 @@ TagManager:
   - name: UI
     uniqueID: 3243401253
     locked: 0
-  - name: Object
-    uniqueID: 1866356807
+  - name: Trap
+    uniqueID: 1710343585
     locked: 0
   - name: Basket
     uniqueID: 3677604271
     locked: 0
-  - name: Trap
-    uniqueID: 1710343585
+  - name: Object
+    uniqueID: 1866356807
     locked: 0
