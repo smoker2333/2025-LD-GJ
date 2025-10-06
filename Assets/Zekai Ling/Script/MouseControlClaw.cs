@@ -109,6 +109,8 @@ public class MouseControlClaw : MonoBehaviour
 
     void DisableClaw()
     {
+        // 播放玩家释放绳子音效
+        SoundManager.Instance.PlaySound(SoundManager.Instance.playerReleasesRopeSound);
         isClawing = false;
         clawScript.DisableClaw();
         clawScript.collider2D.enabled = false;
@@ -161,26 +163,30 @@ public class MouseControlClaw : MonoBehaviour
 
     void UpdateRay(Vector3 start, Vector3 end)
     {
-        if (targetClaw == null)
-            return;      
-        Vector2 direction = (end - start).normalized;
-        float distance = Vector2.Distance(start, end);
-
-        // �������߼��
-        RaycastHit2D hit = Physics2D.Raycast(start, direction, distance, hitLayers);
-
-        if (hit.collider != null)
+        if(isClawing)
         {
-            // ���߻���������
-            Destroy(spring);
-            DisableClaw();
-            Debug.DrawLine(start, hit.point, Color.red); // Debug ���ӻ�
-            Debug.Log($"Ray hit: {hit.collider.name}");
+            if (targetClaw == null)
+                return;
+            Vector2 direction = (end - start).normalized;
+            float distance = Vector2.Distance(start, end);
+
+            // �������߼��
+            RaycastHit2D hit = Physics2D.Raycast(start, direction, distance, hitLayers);
+
+            if (hit.collider != null)
+            {
+                // ���߻���������
+                Destroy(spring);
+                DisableClaw();
+                Debug.DrawLine(start, hit.point, Color.red); // Debug ���ӻ�
+                Debug.Log($"Ray hit: {hit.collider.name}");
+            }
+            else
+            {
+                Debug.DrawLine(start, end, Color.green);
+            }
         }
-        else
-        {         
-            Debug.DrawLine(start, end, Color.green);
-        }
+       
     }
 
     void ChangeClawAnimaton()
@@ -229,8 +235,7 @@ public class MouseControlClaw : MonoBehaviour
         // �ɿ���꣬���� SpringJoint
         if (Input.GetMouseButtonUp(0) && spring != null)
         {
-            // 播放玩家释放绳子音效
-            SoundManager.Instance.PlaySound(SoundManager.Instance.playerReleasesRopeSound);
+            
             
             Destroy(spring);
             DisableClaw();

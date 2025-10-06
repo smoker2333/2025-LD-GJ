@@ -311,6 +311,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SoundManager
       objectReference: {fileID: 0}
+    - target: {fileID: 6216310560160899796, guid: 2cee229b7c274a54f91fa26e837e890d, type: 3}
+      propertyPath: trapRopeRetrievalSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 25a265a4f73130f45afc89f2bb3bc334, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
