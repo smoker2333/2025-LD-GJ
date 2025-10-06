@@ -128,7 +128,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1902081088078170059}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6f7279c5b600b6b4ebff553777e87d39, type: 3}
   m_Name: 
@@ -187,6 +187,7 @@ MonoBehaviour:
   explosionMinRadius: 1
   force: 15
   forceMultiplier: 3
+  explosionEffect: {fileID: 72454053910120221, guid: f238369be4f456c46990f3d599ae324f, type: 3}
 --- !u!114 &3122097235946571262
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -201,6 +202,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectValue: 10
   objectWeight: 2
+  objectData: {fileID: 0}
 --- !u!50 &6098593507620493457
 Rigidbody2D:
   serializedVersion: 4
