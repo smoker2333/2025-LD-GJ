@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: Laser Data
   m_EditorClassIdentifier: 
   multiplier: 1.6
+  maxSpeed: 30
