@@ -112,7 +112,7 @@ public class GameManager : MonoBehaviour
         ResetData();
         
         // 播放游戏主场景背景音乐
-        MusicManager.Instance.PlayMusic(MusicManager.Instance.mainGameSceneMusic);
+        //MusicManager.Instance.PlayMusic(MusicManager.Instance.mainGameSceneMusic);
         
         if (countTimeCoroutine != null)
         {

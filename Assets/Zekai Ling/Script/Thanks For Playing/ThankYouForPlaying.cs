@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class ThankYouForPlaying : MonoBehaviour
 {
+    void Start()
+    {
+        MusicManager.Instance.PlayMusic(MusicManager.Instance.mainGameSceneMusic);
+    }
+
     public void StartTheGame()
     {
         Debug.Log("Start The Game");

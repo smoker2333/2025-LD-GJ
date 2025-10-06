@@ -39,6 +39,12 @@ EditorBuildSettings:
     path: Assets/Kui Zhang/Scene-Level/Level-6.unity
     guid: da83824af79024f4eae6553d45607b6e
   - enabled: 1
+    path: Assets/Kui Zhang/Scene-Level/Level-7.unity
+    guid: 4aeef6b08b1c93f419e60c6c58760540
+  - enabled: 1
+    path: Assets/Kui Zhang/Scene-Level/Level-8.unity
+    guid: 537f1130adc23754da56ae719d5a48de
+  - enabled: 1
     path: Assets/Zekai Ling/Scene/Using/Thanks For Playing.unity
     guid: e648aade059fa82419e496d423b8bda0
   m_configObjects: {}

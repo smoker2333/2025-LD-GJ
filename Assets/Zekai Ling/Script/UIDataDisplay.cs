@@ -16,6 +16,8 @@ public class UIDataDisplay : MonoBehaviour
     public GameObject winUI;
     public GameObject pauseUI;
 
+    public TextMeshProUGUI needText;
+
     private void Start()
     {
         // 订阅事件，参数是名字 + 位置
@@ -27,6 +29,9 @@ public class UIDataDisplay : MonoBehaviour
 
         EventHub.OnGamePause+= ShowPauseUI;
         EventHub.OnGameResume += ShowPauseUI;
+
+        needText= inGameUI.transform.Find("Need").GetComponent<TextMeshProUGUI>();
+        needText.text = "Need:" + (GameManager.instance.scoreToWinGame - GameManager.instance.currentGameScore).ToString("F0");
     }
 
     private void OnDisable()
@@ -50,6 +55,9 @@ public class UIDataDisplay : MonoBehaviour
         spawnedObj.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = score.ToString("F0");      
 
         currentScoreText.text =  GameManager.instance.currentGameScore.ToString("F0");
+
+        //needText为仍然需要的分数
+        needText.text = "Need:" + ( GameManager.instance.scoreToWinGame - GameManager.instance.currentGameScore).ToString("F0");
     }
 
     void UpdateUITime(float timeRemaining)
