@@ -837,6 +837,10 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6355399450354989456, guid: e871aa44ab557e54f9164b9e0385499c, type: 3}
+      propertyPath: m_SortingOrder
+      value: 12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2900,7 +2904,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7584c155678b4d44c8d920a4ea2c36ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnAnimator: {fileID: 0}
   spawnAnimationDuration: 0.5
   objectPrefabs:
   - {fileID: 2613240589158998981, guid: 2d9273f92ba9df94a822069cc309b580, type: 3}
