@@ -9,6 +9,7 @@ public class MouseControlClaw : MonoBehaviour
 {
     public ScriptableObject clawData;
 
+    public RobotHead robotAnimation;
 
     /* public float forceStrength = 10f;  // ������ǿ��
      public float maxDistance = 5f;     // Ӱ�췶Χ
@@ -99,6 +100,8 @@ public class MouseControlClaw : MonoBehaviour
     {
         isClawing = true;
         clawScript.collider2D.enabled = true;
+
+        robotAnimation.SetSearching();
         
     }
 
@@ -107,6 +110,8 @@ public class MouseControlClaw : MonoBehaviour
         isClawing = false;
         clawScript.DisableClaw();
         clawScript.collider2D.enabled = false;
+
+        robotAnimation.CancleSearching();
     }
 
     //���ƴӵ�ǰ���嵽Ŀ��צ�ӵ��߶Σ�����Ϸ�����п��ӻ���  
@@ -176,7 +181,18 @@ public class MouseControlClaw : MonoBehaviour
         }
     }
 
-    
+    void ChangeClawAnimaton()
+    {
+        if (clawScript.isClawed)
+        {
+            robotAnimation.SetCatching();
+        }
+        else
+        {
+            robotAnimation.CancleCatching();
+        }
+    }
+
 
     void MouseControl()
     {
@@ -260,6 +276,7 @@ public class MouseControlClaw : MonoBehaviour
         SetAngel();
         LimitClawMaxDistance();
         UpdateRay(transform.position, targetClaw.transform.position);
+        ChangeClawAnimaton();
     }
 
    

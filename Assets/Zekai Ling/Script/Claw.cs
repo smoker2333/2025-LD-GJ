@@ -6,7 +6,7 @@ public class Claw : MonoBehaviour
 {
    // public bool isEnabled = true;// צ���Ƿ����
 
-    bool isClawed = false;// �Ƿ�ץȡ����Ʒ
+    public bool isClawed = false;// �Ƿ�ץȡ����Ʒ
 
     public GameObject clawedObject;// ץȡ������Ʒ
 
