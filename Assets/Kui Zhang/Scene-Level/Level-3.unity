@@ -822,6 +822,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Conveyor_Belt (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 7046065104382671729, guid: 0aa1ba0f4057445488ce2e2e576dab20, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.382
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
