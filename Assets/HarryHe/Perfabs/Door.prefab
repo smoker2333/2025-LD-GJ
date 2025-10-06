@@ -170,7 +170,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6317532643046611120}
   - component: {fileID: 4893577172153496119}
-  - component: {fileID: 6600872613894832352}
+  - component: {fileID: 2596456001415526684}
   m_Layer: 0
   m_Name: Door
   m_TagString: Untagged
@@ -216,13 +216,13 @@ MonoBehaviour:
   rightDoor: {fileID: 5171599976182708812}
   leftBoundary: {fileID: 126813794706420097}
   rightBoundary: {fileID: 7288204708614346859}
-  doorAnimator: {fileID: 0}
+  doorAnimator: {fileID: 2596456001415526684}
   openDuration: 0.5
   closeDuration: 0.5
   openInterval: 1
   closeInterval: 1
   doorOpenDistance: 1
---- !u!95 &6600872613894832352
+--- !u!95 &2596456001415526684
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0
@@ -392,7 +392,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -606,7 +606,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
