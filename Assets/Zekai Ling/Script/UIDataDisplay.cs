@@ -58,7 +58,7 @@ public class UIDataDisplay : MonoBehaviour
         {
             int minutes = Mathf.FloorToInt(timeRemaining / 60f);
             int seconds = Mathf.FloorToInt(timeRemaining % 60f);
-            timeText.text = string.Format("Time: {0:00}:{1:00}", minutes, seconds);
+            timeText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
         }
 
     }
