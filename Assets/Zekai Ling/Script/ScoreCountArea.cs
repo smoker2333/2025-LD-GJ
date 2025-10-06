@@ -20,7 +20,7 @@ public class ScoreCountArea : MonoBehaviour
                 //������ķ����ӵ���Ϸ�������ĵ�ǰ������
                 SoundManager.Instance.PlaySound(SoundManager.Instance.packagePlacedInBasketSound);
             
-            GameManager.instance.AddScore(objectData.objectValue, collision.transform.position);
+        
                 Debug.Log("��ǰ����: " + GameManager.instance.currentGameScore);
                
             }
@@ -29,6 +29,7 @@ public class ScoreCountArea : MonoBehaviour
             if (!containedObject.Contains(collision.gameObject))
             {
                 containedObject.Add(collision.gameObject);
+                GameManager.instance.AddScore(objectData.objectValue, collision.transform.position);
             }
 
         }
@@ -47,13 +48,14 @@ public class ScoreCountArea : MonoBehaviour
             if (objectData != null)
             {
                 //������ķ����ӵ���Ϸ�������ĵ�ǰ������
-                GameManager.instance.AddScore(-objectData.objectValue, collision.transform.position);
+               
                 Debug.Log("��ǰ����: " + GameManager.instance.currentGameScore);
 
             }
             //如果碰撞的物体在列表中，则从列表中移除
             if (containedObject.Contains(collision.gameObject))
             {
+                GameManager.instance.AddScore(-objectData.objectValue, collision.transform.position);
                 containedObject.Remove(collision.gameObject);
             }
         }

@@ -89,6 +89,14 @@ public class Claw : MonoBehaviour
         if (isClawed && clawedObject != null)
         {           
             clawedObject.transform.rotation = clawedTransform.rotation;
+
+        }
+        else
+        {
+            isClawed = false;
+            if(clawedObject != null)
+               DisableClaw();
+
         }
         
     }
