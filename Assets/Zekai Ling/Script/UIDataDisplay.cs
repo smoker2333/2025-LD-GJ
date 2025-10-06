@@ -49,7 +49,7 @@ public class UIDataDisplay : MonoBehaviour
         GameObject spawnedObj = Instantiate(scoreTextObject, pos, Quaternion.identity);
         spawnedObj.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = score.ToString("F0");      
 
-        currentScoreText.text = "Score: " + GameManager.instance.currentGameScore.ToString("F0");
+        currentScoreText.text =  GameManager.instance.currentGameScore.ToString("F0");
     }
 
     void UpdateUITime(float timeRemaining)
