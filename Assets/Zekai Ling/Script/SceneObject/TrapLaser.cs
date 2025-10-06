@@ -8,6 +8,8 @@ public class TrapLaser : MonoBehaviour
     public ScriptableObject reflectLaserData;
 
     public float soundLimitation = 5f;//如果弹射速度小于这个值就不播放音效
+
+    public float maxSpeed = 20f; 
     private void Start()
     {
         if (reflectLaserData != null)
@@ -16,6 +18,7 @@ public class TrapLaser : MonoBehaviour
             if (data != null)
             {
                 reflectMultiplier = data.multiplier;
+                maxSpeed = data.maxSpeed;
             }
         }
     }
@@ -38,6 +41,12 @@ public class TrapLaser : MonoBehaviour
 
             // �������� = �����������ݷ��߷���
             Vector2 reflect = Vector2.Reflect(incoming, normal);
+
+            //反射的速度不能超过maxSpeed，如果超过则按比例缩小到maxSpeed
+            if(reflect.magnitude * reflectMultiplier > maxSpeed)
+            {
+                reflect = reflect.normalized * (maxSpeed / reflectMultiplier);
+            }
 
             // �����µ��ٶȣ��ɼӱ���
             rb.velocity = reflect * reflectMultiplier;

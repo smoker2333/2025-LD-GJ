@@ -11,6 +11,8 @@ public class MouseControlClaw : MonoBehaviour
 
     public RobotHead robotAnimation;
 
+    public Transform ropePoint; //绳子连接点位置
+
     /* public float forceStrength = 10f;  // ������ǿ��
      public float maxDistance = 5f;     // Ӱ�췶Χ
 
@@ -152,7 +154,7 @@ public class MouseControlClaw : MonoBehaviour
                 lr.SetPosition(1, (Vector2)transform.position + direction);
                 return;
             }*/
-            lr.SetPosition(1, targetClaw.transform.position);
+            lr.SetPosition(1, ropePoint.position);
         }
        
     }

@@ -316,6 +316,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clawData: {fileID: 0}
   robotAnimation: {fileID: 5620053031853117545}
+  ropePoint: {fileID: 7396918956134520097}
   frequency: 1
   dampingRatio: 0.5
   maxDistance: 3
@@ -644,7 +645,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.014946103, y: -0.08668634}
+  m_Offset: {x: -0.011437714, y: -0.14991552}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -655,7 +656,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.956854, y: 0.8133727}
+  m_Size: {x: 0.74267864, y: 0.6142268}
   m_EdgeRadius: 0
 --- !u!50 &8517690559444555676
 Rigidbody2D:
@@ -774,6 +775,7 @@ Transform:
   m_Children:
   - {fileID: 5338386801102779697}
   - {fileID: 5979518798667961440}
+  - {fileID: 7396918956134520097}
   m_Father: {fileID: 8852815721408583991}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2481444691603957755
@@ -1076,6 +1078,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &8171679142923247057
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7396918956134520097}
+  m_Layer: 6
+  m_Name: RopePoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7396918956134520097
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8171679142923247057}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8520977644922447958}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8398766038872174734
 GameObject:
   m_ObjectHideFlags: 0
@@ -1187,7 +1220,7 @@ Transform:
   m_GameObject: {fileID: 9141890546816817066}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.21700005, z: 0}
+  m_LocalPosition: {x: 0, y: 0.163, z: 0}
   m_LocalScale: {x: 0.29999998, y: 0.29999998, z: 0.29999998}
   m_ConstrainProportionsScale: 1
   m_Children:
