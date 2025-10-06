@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class SpawnObject : MonoBehaviour
 {
+    public Animator spawnAnimator; //生成动画控制器
+
+    public float spawnAnimationDuration = 0.5f; //生成动画持续时间
+
     public ObjectDataCount[] objectPrefabs; //要生成的物体预制件
      
     public MovingBelt movingBelt; //传送带脚本引用
@@ -26,9 +30,21 @@ public class SpawnObject : MonoBehaviour
         timer -= Time.deltaTime; //减少计时器
         if (timer <= 0f&&index<objectPrefabs.Length)
         {
-            Spawn(); //生成物体
+           // Spawn(); //生成物体
+           StartCoroutine(Spawning());
             timer = spawnInterval; //重置计时器
         }
+    }
+
+    IEnumerator Spawning()
+    {
+        //先播放生成动画
+        spawnAnimator.SetTrigger("Spawn");
+
+        //等待动画持续时间
+        yield return new WaitForSeconds(spawnAnimationDuration);
+        //生成物体
+        Spawn();
     }
 
     private void Spawn()
