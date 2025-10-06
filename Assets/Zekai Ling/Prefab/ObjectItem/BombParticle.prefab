@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5339006913539786654}
   - component: {fileID: 1936921875390604136}
   - component: {fileID: 72454053910120221}
+  - component: {fileID: 5384169651542734170}
   m_Layer: 0
   m_Name: BombParticle
   m_TagString: Untagged
@@ -4830,3 +4831,33 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!114 &5384169651542734170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7298996076466244774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_ComponentVersion: 1
+  m_HasRenderer: 0
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_ApplyToSortingLayers: 00000000a3009837256052c1a1c5f165afc933db47583e6f01a80362
+  m_ShapePath:
+  - {x: -1.1002921, y: 2.2561383, z: 0}
+  - {x: -1.1002921, y: 2.2561383, z: 0}
+  - {x: -1.1002921, y: 2.2561383, z: 0}
+  - {x: -1.1002921, y: 2.2561383, z: 0}
+  m_ShapePathHash: 0
+  m_Mesh: {fileID: 0}
+  m_InstanceId: -129988
+  m_LocalBounds:
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 0, y: 0, z: 0}
