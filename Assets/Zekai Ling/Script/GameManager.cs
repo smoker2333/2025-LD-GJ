@@ -90,6 +90,7 @@ public class GameManager : MonoBehaviour
     {
         if (currentGameScore >= scoreToWinGame)
         {
+            if (!IsGameWined)
             GameWin();
         }
 
