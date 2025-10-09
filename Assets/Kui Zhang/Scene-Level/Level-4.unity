@@ -373,7 +373,7 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2cee229b7c274a54f91fa26e837e890d, type: 3}
---- !u!1001 &455568414
+--- !u!1001 &506536101
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -383,7 +383,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1025373825916783340, guid: f38fe6a94533a3b47a0910fe0185ae63, type: 3}
       propertyPath: m_Name
-      value: UI_Container (1)
+      value: UI_Container
       objectReference: {fileID: 0}
     - target: {fileID: 7141646534701232436, guid: f38fe6a94533a3b47a0910fe0185ae63, type: 3}
       propertyPath: m_Pivot.x
@@ -1130,4 +1130,4 @@ SceneRoots:
   - {fileID: 670696695}
   - {fileID: 1267504810}
   - {fileID: 328796442}
-  - {fileID: 455568414}
+  - {fileID: 506536101}
